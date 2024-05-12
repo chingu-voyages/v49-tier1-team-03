@@ -38,6 +38,6 @@ coding!
 - Dusan Djergovic: [GitHub](https://github.com/dusandjergovic) / [LinkedIn](https://www.linkedin.com/in/du%C5%A1an-%C4%91ergovi%C4%87-aaa2a4259/)
 - Diego Raffa: [GitHub](https://github.com/Diegoireland1975) / [LinkedIn](https://www.linkedin.com/in/diego-raffa/)
 - Liat Cohen #4: [GitHub](https://github.com/LiatPoschCohen) / [LinkedIn](https://linkedin.com/in/liatposchcohen) 
-- Teammate name #5: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
+- Ikechukwu Ezeji #5: [GitHub](https://github.com/Ikeze)) / [LinkedIn](https://linkedin.com/in/ikechukwuezeji/)
 - Teammate name #6: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
 - Teammate name #7: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
