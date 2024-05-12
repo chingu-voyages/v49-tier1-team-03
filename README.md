@@ -36,7 +36,7 @@ coding!
 
 - Anita Boakye-Yiadom: [GitHub](https://github.com/AnitaBoakye) / [LinkedIn](https://linkedin.com/in/anitaboakyeyiadom/)
 - Dusan Djergovic: [GitHub](https://github.com/dusandjergovic) / [LinkedIn](https://www.linkedin.com/in/du%C5%A1an-%C4%91ergovi%C4%87-aaa2a4259/)
-- Teammate name #3: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
+- Diego Raffa: [GitHub](https://github.com/Diegoireland1975) / [LinkedIn](https://www.linkedin.com/in/diego-raffa/)
 - Teammate name #4: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
 - Teammate name #5: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
 - Teammate name #6: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
