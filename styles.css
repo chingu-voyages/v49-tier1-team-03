@@ -20,7 +20,7 @@ body {
 
 .logo {
   color: #fff;
-  text-align: center;
+  text-align: left;
   font-weight: 300;
   cursor: pointer;
   transition: 0.25s ease-in-out;
