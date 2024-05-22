@@ -10,7 +10,7 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-.logo {
+.main-header {
   background-color: #000;
   width: 100%;
   position: sticky;
@@ -18,7 +18,7 @@ body {
   z-index: 10;
 }
 
-h1 {
+.logo {
   color: #fff;
   text-align: center;
   font-weight: 300;
