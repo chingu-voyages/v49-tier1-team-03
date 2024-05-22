@@ -3,16 +3,23 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  border: 1px solid #fff; /* For debugging  - to visualise the box model*/
+  /* border: 1px solid #fff; For debugging  - to visualise the box model */
 }
 
 body {
   font-family: "Poppins", sans-serif;
 }
+/* Utility classes */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
 
 .main-header {
   background-color: #000;
-  width: 100%;
+  /* width: 100%; */
   position: sticky;
   top: 0;
   z-index: 10;
