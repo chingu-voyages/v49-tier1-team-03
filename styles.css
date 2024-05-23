@@ -40,7 +40,8 @@ h1:hover {
   opacity: 0.9;
 }
 
-.container {
+/* Add flexbox */
+.page-container {
   display: flex;
   flex-direction: column;
   align-items: center;
