@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* border: 1px solid #fff; For debugging  - to visualise the box model */
+  border: 1px solid #fff; /* For debugging  - to visualise the box model */
 }
 
 body {
@@ -37,18 +37,18 @@ h1:hover {
   opacity: 0.9;
 }
 
-.page {
+.page .container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 /* For debugging  - to visualise the box model*/
-.box-padding {
+/* .box-padding {
   padding: 20px 40px;
   margin-top: 50px;
   margin-bottom: 50px;
-}
+} */
 
 /*The background colours are just temporary, it's just that we can visualise whether @media query works. Will be removed later on*/
 /* Mobile Styles */
