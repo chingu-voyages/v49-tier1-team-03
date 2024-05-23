@@ -33,6 +33,9 @@ body {
   transition: 0.25s ease-in-out;
 }
 
+h1 {
+  font-size: 1.25rem;
+}
 h1:hover {
   opacity: 0.9;
 }
@@ -44,11 +47,11 @@ h1:hover {
 }
 
 /* For debugging  - to visualise the box model*/
-/* .box-padding {
+.box-padding {
   padding: 20px 40px;
   margin-top: 50px;
   margin-bottom: 50px;
-} */
+}
 
 /*The background colours are just temporary, it's just that we can visualise whether @media query works. Will be removed later on*/
 /* Mobile Styles */
