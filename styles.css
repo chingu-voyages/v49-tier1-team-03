@@ -39,19 +39,26 @@ h1 {
 h1:hover {
   opacity: 0.9;
 }
-
-/* Add flexbox */
-.page-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 /* For debugging  - to visualise the box model*/
 .box-padding {
   padding: 20px 40px;
   margin-top: 50px;
   margin-bottom: 50px;
+}
+
+/* Add flexbox */
+.headline-container,
+.page-container {
+  display: flex;
+  flex-direction: column;
+}
+
+div.headline-container .box-padding {
+  padding: 0; /*Removes padding for headline*/
+}
+
+.page-container {
+  align-items: center;
 }
 
 /*The background colours are just temporary, it's just that we can visualise whether @media query works. Will be removed later on*/
