@@ -84,6 +84,6 @@ div.headline-container .box-padding {
 
   .desktop-row {
     flex-direction: row-reverse;
-    justify-content: center;
+    justify-content: space-evenly;
   }
 }
