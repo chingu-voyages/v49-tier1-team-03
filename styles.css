@@ -47,9 +47,32 @@ h1:hover {
   margin: 2.5rem 0;
 }
 
+/* For debugging  - to visualise the box model*/
+/* .box-padding {
+  padding: 20px 40px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+} */
+
+/* Add flexbox */
+.headline-container,
+.page-container {
+  display: flex;
+  flex-direction: column;
+}
+
+div.headline-container .box-padding {
+  padding: 0; /*Removes padding for headline*/
+}
+
+.page-container {
+  align-items: center;
+}
+
 /* DROPDOWN COLOR */
 .dropdown-color {
   margin-bottom: 2rem;
+  color: #000;
 }
 
 label {
@@ -75,28 +98,31 @@ select {
   background-repeat: no-repeat;
   background-position: 95%;
 }
-/* For debugging  - to visualise the box model*/
-/* .box-padding {
-  padding: 20px 40px;
-  margin-top: 50px;
-  margin-bottom: 50px;
-} */
 
-/* Add flexbox */
-.headline-container,
-.page-container {
+/* BOX PALETTE */
+.color-palette {
+  margin-top: 1rem;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
 }
 
-div.headline-container .box-padding {
-  padding: 0; /*Removes padding for headline*/
+.box {
+  padding: 1.125rem 3rem;
+  flex: 1;
+  text-align: center;
 }
 
-.page-container {
-  align-items: center;
+.box1 {
+  background: #f719ff;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
 }
 
+.box2 {
+  background: #73ff19;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
 /*The background colours are just temporary, it's just that we can visualise whether @media query works. Will be removed later on*/
 /* Mobile Styles */
 @media only screen and (max-width: 400px) {
