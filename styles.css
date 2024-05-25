@@ -32,16 +32,21 @@ body {
   font-weight: 300;
   cursor: pointer;
   transition: 0.25s ease-in-out;
-}
-
-h1 {
   font-size: 1.25rem;
 }
 
-h1:hover {
+.logo:hover {
   opacity: 0.9;
 }
 
+h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-weight: 300;
+}
 /* WHEEL */
 .picker {
   margin: 2.5rem 0;
