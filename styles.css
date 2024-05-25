@@ -17,6 +17,7 @@ body {
   padding: 1rem 0;
 }
 
+/* HEADER */
 .main-header {
   background-color: #000;
   /* width: 100%; */
@@ -41,15 +42,22 @@ h1:hover {
   opacity: 0.9;
 }
 
-/* Dropdown */
-.dropdown-color {
-  margin: 3rem 0;
+/* WHEEL */
+.picker {
+  margin: 2.5rem 0;
 }
+
+/* DROPDOWN COLOR */
+.dropdown-color {
+  margin-bottom: 2rem;
+}
+
 label {
   display: block;
 }
 
-input {
+input,
+select {
   width: 368px;
   margin: 0.5rem auto;
   display: block;
@@ -57,9 +65,15 @@ input {
   padding: 0.75rem 1.25rem;
   border-radius: 8px;
   border: 1px solid #e0e0e0;
+  cursor: pointer;
 }
+
 select {
   font-family: inherit;
+  appearance: none;
+  background-image: url("img/chevron-down.png");
+  background-repeat: no-repeat;
+  background-position: 95%;
 }
 /* For debugging  - to visualise the box model*/
 /* .box-padding {
