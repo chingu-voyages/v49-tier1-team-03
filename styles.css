@@ -42,11 +42,24 @@ h1:hover {
 }
 
 /* Dropdown */
+.dropdown-color {
+  margin: 3rem 0;
+}
+label {
+  display: block;
+}
 
 input {
-  margin: 0.5rem 0;
+  width: 368px;
+  margin: 0.5rem auto;
   display: block;
   outline: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+select {
+  font-family: inherit;
 }
 /* For debugging  - to visualise the box model*/
 /* .box-padding {
