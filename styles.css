@@ -1,20 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap");
 * {
   margin: 0;
   padding: 0;
-  border: 1px solid #fff; /* For debugging  - to visualise the box model*/
+  box-sizing: border-box;
+  /* border: 1px solid #fff; For debugging  - to visualise the box model */
 }
 
-.page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+body {
+  font-family: "Poppins", sans-serif;
+}
+/* Utility classes */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+
+/* HEADER */
+.main-header {
+  background-color: #000;
+  /* width: 100%; */
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  color: #fff;
+  text-align: left;
+  font-weight: 300;
+  cursor: pointer;
+  transition: 0.25s ease-in-out;
+  font-size: 1.25rem;
+}
+
+.logo:hover {
+  opacity: 0.9;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-weight: 300;
+}
+/* WHEEL */
+.picker {
+  margin: 2.5rem 0;
 }
 
 /* For debugging  - to visualise the box model*/
-.box-padding {
+/* .box-padding {
   padding: 20px 40px;
   margin-top: 50px;
   margin-bottom: 50px;
+} */
+
+/* Add flexbox */
+.headline-container,
+.page-container {
+  display: flex;
+  flex-direction: column;
+}
+
+div.headline-container .box-padding {
+  padding: 0; /*Removes padding for headline*/
+}
+
+.page-container {
+  align-items: center;
+}
+
+/* DROPDOWN COLOR */
+.dropdown-color {
+  margin-bottom: 2rem;
+  color: #000;
+}
+
+label {
+  display: block;
+}
+
+input,
+select {
+  width: 368px;
+  margin: 0.5rem auto;
+  display: block;
+  outline: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  cursor: pointer;
+}
+
+select {
+  font-family: inherit;
+  appearance: none;
+  background-image: url("img/chevron-down.png");
+  background-repeat: no-repeat;
+  background-position: 95%;
+}
+
+/* BOX PALETTE */
+.color-palette {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.box {
+  padding: 1.125rem 3rem;
+  flex: 1;
+  text-align: center;
+}
+
+.box1 {
+  background: #f719ff;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.box2 {
+  background: #73ff19;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 /*The background colours are just temporary, it's just that we can visualise whether @media query works. Will be removed later on*/
@@ -36,5 +148,10 @@
 @media only screen and (min-width: 961px) {
   body {
     background-color: #b2d6ff; /* Blue */
+  }
+
+  .desktop-row {
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
   }
 }
