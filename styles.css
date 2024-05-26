@@ -167,12 +167,12 @@ select {
 
   .desktop-row {
     flex-direction: row-reverse;
-    justify-content: space-evenly;
-    gap: 3rem;
+    justify-content: start;
+    gap: 7rem;
   }
 
   input,
   select {
-    width: 50vw;
+    max-width: 500px;
   }
 }
