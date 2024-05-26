@@ -24,6 +24,9 @@ body {
   position: sticky;
   top: 0;
   z-index: 10;
+  height: 2.8rem;
+  display: flex;
+  align-items: center;
 }
 
 .logo {
@@ -40,15 +43,18 @@ body {
 }
 
 h1 {
-  font-size: 1.5rem;
-  font-weight: 700;
+  margin: 2rem 0 1rem;
+  font-size: 2rem;
+  font-weight: 400;
 }
 
 h2 {
+  font-size: 1.5rem;
   font-weight: 300;
 }
 /* WHEEL */
-.picker {
+.picker,
+.triadic {
   margin: 2.5rem 0;
 }
 
@@ -82,11 +88,16 @@ div.headline-container .box-padding {
 
 label {
   display: block;
+  font-size: 1rem;
 }
 
 input,
 select {
-  width: 320px;
+  width: 90vw;
+  font-size: 1rem;
+  font-weight: 300;
+  font-family: inherit;
+  margin: 0.6rem 0 1.3rem;
   margin: 0.5rem auto;
   display: block;
   outline: none;
@@ -97,7 +108,6 @@ select {
 }
 
 select {
-  font-family: inherit;
   appearance: none;
   background-image: url("img/chevron-down.png");
   background-repeat: no-repeat;
@@ -129,6 +139,20 @@ select {
   border-bottom-right-radius: 8px;
 }
 
+.box3 {
+  background: red;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  display: none;
+}
+
+.box4 {
+  background: yellow;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  display: none;
+}
+
 /*The background colours are just temporary, it's just that we can visualise whether @media query works. Will be removed later on*/
 /* Mobile Styles */
 @media only screen and (max-width: 400px) {
@@ -150,8 +174,27 @@ select {
     background-color: #b2d6ff; /* Blue */
   }
 
+  h1 {
+    font-size: 4rem;
+    margin-top: 3.125rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  label {
+    font-size: 1.25rem;
+  }
+
   .desktop-row {
     flex-direction: row-reverse;
-    justify-content: space-evenly;
+    justify-content: start;
+    gap: 7rem;
+  }
+
+  input,
+  select {
+    max-width: 500px;
   }
 }
