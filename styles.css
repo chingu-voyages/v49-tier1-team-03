@@ -44,11 +44,12 @@ body {
 
 h1 {
   margin: 2rem 0 1rem;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 400;
 }
 
 h2 {
+  font-size: 1.5rem;
   font-weight: 300;
 }
 /* WHEEL */
@@ -91,6 +92,7 @@ label {
 input,
 select {
   width: 90vw;
+  font-size: 1rem;
   margin: 0.5rem auto;
   display: block;
   outline: none;
@@ -158,6 +160,11 @@ select {
     font-size: 4rem;
     margin-top: 3.125rem;
   }
+
+  h2 {
+    font-size: 2rem;
+  }
+
   .desktop-row {
     flex-direction: row-reverse;
     justify-content: space-evenly;
