@@ -90,7 +90,7 @@ label {
 
 input,
 select {
-  width: 320px;
+  width: 90vw;
   margin: 0.5rem auto;
   display: block;
   outline: none;
@@ -145,10 +145,6 @@ select {
 @media only screen and (min-width: 401px) and (max-width: 960px) {
   body {
     background-color: #f5cf8e; /* Yellow */
-  }
-  input,
-  select {
-    width: 90vw;
   }
 }
 
