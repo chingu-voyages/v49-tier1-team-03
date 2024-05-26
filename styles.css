@@ -45,7 +45,7 @@ body {
 h1 {
   margin: 2rem 0 1rem;
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 h2 {
@@ -155,10 +155,16 @@ select {
   }
 
   h1 {
+    font-size: 4rem;
     margin-top: 3.125rem;
   }
   .desktop-row {
     flex-direction: row-reverse;
     justify-content: space-evenly;
+  }
+
+  input,
+  select {
+    max-width: 800px;
   }
 }
