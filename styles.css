@@ -146,6 +146,10 @@ select {
   body {
     background-color: #f5cf8e; /* Yellow */
   }
+  input,
+  select {
+    width: 90vw;
+  }
 }
 
 /* Desktop Styles */
@@ -161,10 +165,11 @@ select {
   .desktop-row {
     flex-direction: row-reverse;
     justify-content: space-evenly;
+    gap: 3rem;
   }
 
   input,
   select {
-    max-width: 800px;
+    width: 50vw;
   }
 }
