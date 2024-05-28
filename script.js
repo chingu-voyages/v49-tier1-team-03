@@ -73,7 +73,7 @@ function getColorHarmony() {
 Dynamic Colour Palette
  1st box is always the user selection
 */
-const colorList = document.getElementById("colorPalette");
+const colorPalette = document.getElementById("colorPalette");
 
 // https://iro.js.org/guide.html#color-picker-events
 // When there is a change on the colour wheel, html element is updated and displays colors from color array
