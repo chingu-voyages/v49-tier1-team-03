@@ -78,8 +78,7 @@ colorPicker.on(["color:init", "color:change"], function (defaultColor) { //(colo
     colorList.innerHTML += `
       <li>
         <div class="swatch" style="background: ${ hexString }"></div>
-      </li>
-    `;
+      </li>`;
   });
   
 });
@@ -87,7 +86,7 @@ colorPicker.on(["color:init", "color:change"], function (defaultColor) { //(colo
 
 //When the user types something in the input field and hit enter -> The "change" event is triggered - the color wheel will be updated with user's color
 hexInput.addEventListener("change", function () {
-  colorPicker.defaultColor.hexString = this.value;
+  colorPicker.color.hexString = this.value;
 });
 
 
