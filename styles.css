@@ -58,6 +58,11 @@ h2 {
   margin: 2.5rem 0;
 }
 
+.triadic,
+.tetradic {
+  display: none;
+}
+
 /* For debugging  - to visualise the box model*/
 /* .box-padding {
   padding: 20px 40px;
