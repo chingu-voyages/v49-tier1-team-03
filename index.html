@@ -1,60 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="styles.css" />
-  <title>Colour Matching App</title>
-</head>
-<body>
-  <header class="main-header">
-    <div class="container">
-      <p class="logo">ColorCraze</p>
-    </div>
-  </header>
-  <div class="headline-container container">
-    <div class="box-padding">
-      <h1>Color Wheel</h1>
-      <h2>Visualize and Combine Color Like a Pro</h2>
-    </div>
-    <div class="page-container container desktop-row">
-      <!-- the actual wheel -->
-      <div class="picker"></div>
-      <div class="triadic"></div>
-      <div class="tetradic"></div>
-      <div>
-        <div class="box-padding">
-          <!-- Dropdown -->
-          <div class="dropdown-color">
-            <label for="hexInput">1. Pick a color</label>
-            <input type="text" id="hexInput" placeholder="Hex Code" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Colour Matching App</title>
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="container">
+        <p class="logo">ColorCraze</p>
+      </div>
+    </header>
+    <div class="headline-container container">
+      <div class="box-padding">
+        <h1>Color Wheel</h1>
+        <h2>Visualize and Combine Color Like a Pro</h2>
+      </div>
+      <div class="page-container container desktop-row">
+        <!-- the actual wheel -->
+        <div class="picker"></div>
+        <div class="triadic"></div>
+        <div class="tetradic"></div>
+        <div>
+          <div class="box-padding">
+            <!-- Dropdown -->
+            <div class="dropdown-color">
+              <label for="hexInput">1. Pick a color</label>
+              <input type="text" id="hexInput" placeholder="Hex Code" />
 
-            <label for="combinations">2. Pick a color combination</label>
-            <select name="combinations" id="combination">
-              <option value="Complementary">Complementary</option>
-              <option value="Monochromatic">Monochromatic</option>
-              <option value="Analogous">Analogous</option>
-              <option value="Triadic">Triadic</option>
-              <option value="Tetradic">Tetradic</option>
-            </select>
+              <label for="combinations">2. Pick a color combination</label>
+              <select name="combinations" id="combinations">
+                <option value="Complementary">Complementary</option>
+                <option value="Monochromatic">Monochromatic</option>
+                <option value="Analogous">Analogous</option>
+                <option value="Triadic">Triadic</option>
+                <option value="Tetradic">Tetradic</option>
+              </select>
 
-            <label>3. Review color palette</label>
-            <div class="color-palette">
-              <div class="box box1">Hex</div>
-              <div class="box box2">Hex</div>
-              <div class="box box3">Hex</div>
-              <div class="box box4">Hex</div>
+              <label>3. Review color palette</label>
+              <div class="color-palette">
+                <div class="box box1">Hex</div>
+                <div class="box box2">Hex</div>
+                <div class="box box3">Hex</div>
+                <div class="box box4">Hex</div>
+              </div>
             </div>
           </div>
         </div>
-
       </div>
     </div>
-  </div>
-  <footer class="page-container box-padding">FOOTER PLACEHOLDER</footer>
+    <footer class="page-container box-padding">FOOTER PLACEHOLDER</footer>
 
-  <!-- IRO.JS library -->
-  <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
-  <script src="script.js"></script>
-</body>
+    <!-- IRO.JS library -->
+    <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
