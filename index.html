@@ -20,30 +20,37 @@
       <div class="page-container container desktop-row">
         <!-- the actual wheel -->
         <div class="picker"></div>
-        <div class="triadic"></div>
-        <div class="tetradic"></div>
+        <!-- <div class="triadic"></div>
+        <div class="tetradic"></div> -->
         <div>
           <div class="box-padding">
             <!-- Dropdown -->
             <div class="dropdown-color">
-              <label for="hexInput">1. Pick a color</label>
-              <input type="text" id="hexInput" placeholder="Hex Code" />
-
-              <label for="combinations">2. Pick a color combination</label>
-              <select name="combinations" id="combinations">
-                <option value="Complementary">Complementary</option>
-                <option value="Monochromatic">Monochromatic</option>
-                <option value="Analogous">Analogous</option>
-                <option value="Triadic">Triadic</option>
-                <option value="Tetradic">Tetradic</option>
-              </select>
-
+              <!-- Hex input field -->
+              <div>
+                <label for="hexInput">1. Pick a color</label>
+                <input type="text" id="hexInput" placeholder="Hex Code" />
+              </div>
+              <!-- Colour harmony selection -->
+              <div>
+                <label for="combinations">2. Pick a color combination</label>
+                <select name="combinations" id="combinations">
+                  <option value="Complementary">Complementary</option>
+                  <option value="Monochromatic">Monochromatic</option>
+                  <option value="Analogous">Analogous</option>
+                  <option value="Triadic">Triadic</option>
+                  <option value="Tetradic">Tetradic</option>
+                </select>
+              </div>
+              <!-- Color palette outpu -->
+              </div>
               <label>3. Review color palette</label>
-              <div class="color-palette">
+              <!-- <div class="color-palette">
                 <div class="box box1">Hex</div>
                 <div class="box box2">Hex</div>
                 <div class="box box3">Hex</div>
                 <div class="box box4">Hex</div>
+              </div> -->
               </div>
             </div>
           </div>
