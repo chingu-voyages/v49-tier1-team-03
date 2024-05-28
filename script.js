@@ -33,6 +33,7 @@ hexInput.addEventListener("change", function () {
 });
 
 // Get user color harmony selection
+let color_harmony = document.getElementBy;
 
 // Get suggestion from groq ai and add to color array.
 
@@ -50,7 +51,7 @@ colorPicker.on(["mount", "color:change"], function () {
     const hexString = color.hexString;
     colorPalette.innerHTML += `
       <li>
-        <div class="swatch" style="background: ${hexString}"></div>
+        <div class="swatch" style="background: ${hexString}">${hexString}</div>
       </li>
     `;
   });
