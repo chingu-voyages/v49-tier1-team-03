@@ -145,6 +145,11 @@ select {
   
   li {
     flex: 1;
+    cursor: pointer;
+  }
+
+  li:hover {
+    scale: 1.05;
   }
   
   li:first-child {
