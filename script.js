@@ -3,15 +3,18 @@
 
 // and this is version where we can play with our wheel and add whatever property we want
 var colorPicker = new iro.ColorPicker(".picker", {
-    // Set the size of the color picker
-    width: 320,
-    // Set the initial color to pure red
-    color: "#f719ff",
-    id: 'default'
-  });
+  // Set the size of the color picker
+  width: 320,
+  // Set the initial color to pure red
+  color: "#f719ff",
+  id: "default",
+});
 
 // Get user selection by referencing the id selector "hexInput"
 var hexInput = document.getElementById("hexInput");
+
+// Initialise user_hex variable
+let user_hex = 0;
 
 // When there is a color change ie user selects a color on the wheel, update the input field with the selected color.
 // https://iro.js.org/guide.html#color-picker-events
@@ -20,6 +23,8 @@ colorPicker.on(["color:init", "color:change"], function (color) {
   hexInput.value = color.hexString; // the input field is updated with the color's hex string.
   console.log(color.hexString); // Debugging - prints selected value in console
   console.log(hexInput.value); // Debugging - prints selected value in console
+  user_hex = color.hexString;
+  console.log(user_hex); // Debugging - prints user's choice
 });
 
 //When the user types something in the input field and hit enter -> The "change" event is triggered - the color wheel will be updated with user's color
@@ -27,74 +32,26 @@ hexInput.addEventListener("change", function () {
   colorPicker.color.hexString = this.value;
 });
 
-let box2 = document.querySelector(".box2")
-let box3 = document.querySelector(".box3");
-let box4 = document.querySelector(".box4");
+// Get user color harmony selection
 
+// Get suggestion from groq ai and add to color array.
 
-let combination = document.querySelector("#combination");
-combination.addEventListener("change", function() {
-  console.log(this.value)
-  if(this.value === 'Triadic') { 
-    box3.style.display = 'block';
-    box4.style.display = 'none';
-    box2.style.backgroundColor = '#73ff19'
-    if (colorPicker.id === 'default') {
-      document.querySelector("#default").style.display = 'none'
-      // document.querySelector("#tetradic").style.display = 'none'
-      const colorPickerTriadic = new iro.ColorPicker(".triadic", {
-        // color picker options
-        // Option guide: https://iro.js.org/guide.html#color-picker-options
-        width: 320,
-        // Pure red, green and blue
-        colors: [
-          "rgb(255, 0, 0)",
-          "rgb(0, 255, 0)",
-          "rgb(0, 0, 255)",
-        ],
-        handleRadius: 9,
-        borderWidth: 1,
-        borderColor: "#fff",
-        id: 'triadic'
-      });
-    }
-    // console.log(colorPicker.id)
-  } else if (this.value === 'Tetradic') {
-    box3.style.display = 'block';
-    box4.style.display = 'block';
-    box2.style.backgroundColor = '#73ff19'
-    document.querySelector("#triadic").style.display = 'none'
-    const colorPickerTetradic = new iro.ColorPicker(".tetradic", {
-      // color picker options
-      // Option guide: https://iro.js.org/guide.html#color-picker-options
-      width: 320,
-      // Pure red, green and blue
-      colors: [
-        "rgb(255, 0, 0)",
-        "rgb(0, 255, 0)",
-        "rgb(0, 0, 255)",
-        "rgb(0, 0, 255)",
-        "rgb(255, 0, 238)"
-      ],
-      handleRadius: 9,
-      borderWidth: 1,
-      borderColor: "#fff",
-      id: 'tetradic'
-    });
-  } else if (this.value === 'Analogous') {
-    box3.style.display = 'block';
-    box4.style.display = 'none';
-    box2.style.backgroundColor = '#73ff19'
-  } else if (this.value === 'Monochromatic') {
-    box3.style.display = 'none';
-    box4.style.display = 'none';
-    box2.style.backgroundColor = '#DD00E5'
-  } else if (this.value === 'Complementary') {
-    box2.style.backgroundColor = '#73ff19'
-    box3.style.display = 'none';
-    box4.style.display = 'none';
-  } else {
-    box3.style.display = 'none';
-    box4.style.display = 'none';
-  }
-})
+/*
+Dynamic Colour Palette
+ 1st box is always the user selection
+*/
+const colorList = document.getElementById("colorPalette");
+
+// https://iro.js.org/guide.html#color-picker-events
+// When there is a change on the colour wheel, html element is updated and displays colors from color array
+colorPicker.on(["mount", "color:change"], function () {
+  colorPalette.innerHTML = "";
+  colorPicker.colors.forEach((color) => {
+    const hexString = color.hexString;
+    colorPalette.innerHTML += `
+      <li>
+        <div class="swatch" style="background: ${hexString}"></div>
+      </li>
+    `;
+  });
+});

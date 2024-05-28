@@ -115,7 +115,7 @@ select {
 }
 
 /* BOX PALETTE */
-.colorPalette {
+.color-palette {
   margin-top: 1rem;
   display: flex;
   justify-content: center;
@@ -197,4 +197,14 @@ select {
   select {
     max-width: 500px;
   }
+}
+
+#colorPalette {
+  list-style-type: none;
+}
+
+.swatch {
+  height: 32px;
+  margin: 4px 0;
+  border-radius: 4px;
 }
