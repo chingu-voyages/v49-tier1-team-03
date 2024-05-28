@@ -65,6 +65,7 @@ function getColorHarmony() {
   // this will add the color to the end of the colors array
   colorPicker.addColor("#ff85e0"); // colors are temporary. will be changed to groq ai suggestion
   colorPicker.addColor("#d6f6ff");
+  colorPicker.addColor("#59a7ff");
 
   console.log("colorPicker.colors.length", colorPicker.colors.length); //debugging. prints current color array length
 }
