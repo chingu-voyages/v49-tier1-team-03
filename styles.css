@@ -128,8 +128,6 @@ select {
 
 .swatch {
   height: 58px;
-  /* width: 184px; */
-  margin: 0 auto;
   border-radius: 8px;
 }
 
@@ -245,10 +243,5 @@ select {
   input,
   select {
     max-width: 500px;
-  }
-
-  .swatch {
-    height: 234px;
-    /* width: 112px; */
   }
 }
