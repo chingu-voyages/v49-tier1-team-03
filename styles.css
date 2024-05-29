@@ -24,7 +24,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 10;
-  height: 2.8rem;
+  height: 50px;
   display: flex;
   align-items: center;
 }
@@ -95,6 +95,7 @@ label {
   display: block;
   margin: 0 0 1rem 1rem;
   font-size: 1rem;
+  font-weight: 400;
 }
 
 input,
@@ -113,11 +114,17 @@ select {
   cursor: pointer;
 }
 
+input:focus,
+select:focus {
+  outline: 1px solid #038cfc;
+}
+
 select {
   appearance: none;
   background-image: url("img/chevron-down.png");
   background-repeat: no-repeat;
   background-position: 95%;
+  background: #f2f3f5;
 }
 
 /* BOX PALETTE */
@@ -129,6 +136,10 @@ select {
 .swatch {
   height: 58px;
   border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
 }
 
 .colorList {
@@ -137,7 +148,6 @@ select {
   margin: 0;
   margin-bottom: 12px;
   display: flex;
-  justify-content: center;
 
   .swatch {
     border-radius: 0;
@@ -203,23 +213,23 @@ select {
 /*The background colours are just temporary, it's just that we can visualise whether @media query works. Will be removed later on*/
 /* Mobile Styles */
 @media only screen and (max-width: 400px) {
-  body {
-    background-color: #f09a9d; /* Red */
-  }
+  /* body {
+    background-color: #f09a9d;
+  } */
 }
 
 /* Tablet Styles */
 @media only screen and (min-width: 401px) and (max-width: 960px) {
-  body {
+  /* body {
     background-color: #f5cf8e; /* Yellow */
-  }
+  /* } */
 }
 
 /* Desktop Styles */
 @media only screen and (min-width: 961px) {
-  body {
-    background-color: #b2d6ff; /* Blue */
-  }
+  /* body {
+    background-color: #b2d6ff;
+  } */
 
   h1 {
     font-size: 4rem;
@@ -236,12 +246,16 @@ select {
 
   .desktop-row {
     flex-direction: row-reverse;
-    justify-content: start;
-    gap: 7rem;
+    justify-content: center;
+    gap: 6rem;
   }
 
   input,
   select {
     max-width: 500px;
+  }
+
+  .swatch {
+    height: 112px;
   }
 }

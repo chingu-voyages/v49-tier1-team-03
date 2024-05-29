@@ -10,8 +10,8 @@ var colorPicker = new iro.ColorPicker(".picker", {
   // color: "#f719ff",
   margin: 24,
   colors: [
-    "rgb(255, 255, 255)",
-    // "rgb(247, 25, 255)",
+    // "rgb(255, 255, 255)",
+    "rgb(247, 25, 255)",
     "rgb(33, 255, 25)",
   ],
   id: "default",
@@ -75,7 +75,7 @@ colorPicker.on(["color:init", "color:change"], function (defaultColor) {
     const hexString = color.hexString;
     colorList.innerHTML += `
       <li>
-        <div class="swatch" style="background: ${hexString}"></div>
+        <div class="swatch" style="background: ${hexString}">Hex</div>
       </li>`;
   });
 });
