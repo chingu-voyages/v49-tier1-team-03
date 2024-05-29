@@ -8,12 +8,16 @@
 body {
   font-family: "Poppins", sans-serif;
 }
+
+img {
+  width: 100%;
+  display: block;
+}
 /* Utility classes */
 .container {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem 0;
 }
 
 /* HEADER */
@@ -23,22 +27,14 @@ body {
   position: sticky;
   top: 0;
   z-index: 10;
-  height: 50px;
+  height: 57px;
   display: flex;
   align-items: center;
 }
 
 .logo {
-  color: #fff;
-  text-align: left;
-  font-weight: 300;
   cursor: pointer;
-  transition: 0.25s ease-in-out;
-  font-size: 1.25rem;
-}
-
-.logo:hover {
-  opacity: 0.9;
+  width: 90px;
 }
 
 h1 {
@@ -232,15 +228,23 @@ select {
     font-size: 1.25rem;
   }
 
-  .desktop-row {
-    flex-direction: row-reverse;
-    justify-content: center;
-    gap: 6rem;
+  .headline-container {
+    position: relative;
   }
 
+  .desktop-row {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  .dropdown-color {
+    position: absolute;
+    left: 0;
+    top: 40%;
+  }
   input,
   select {
-    max-width: 500px;
+    max-width: 460px;
   }
 
   .swatch {
