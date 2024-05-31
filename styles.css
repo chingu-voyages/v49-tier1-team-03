@@ -172,9 +172,13 @@ select {
 
 /* Footer */
 .main-footer {
-  margin-top: auto;
+  margin: 3.625rem 0 2rem;
   font-size: 0.7rem;
   white-space: nowrap;
+}
+
+.main-footer a {
+  color: #737373;
 }
 
 .main-footer .container {
@@ -191,6 +195,9 @@ select {
 /* Tablet Styles */
 /* ################# */
 @media only screen and (min-width: 768px) and (max-width: 960px) {
+  .main-footer .container {
+    justify-content: flex-start;
+  }
 }
 /* ################# */
 /* Desktop Styles */
@@ -231,5 +238,9 @@ select {
 
   .swatch {
     height: 112px;
+  }
+
+  .main-footer .container {
+    justify-content: flex-start;
   }
 }
