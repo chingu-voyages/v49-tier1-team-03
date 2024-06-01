@@ -3,18 +3,28 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* border: 1px solid #fff; For debugging  - to visualise the box model */
 }
 
 body {
   font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  display: block;
 }
 /* Utility classes */
 .container {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem 0;
 }
 
 /* HEADER */
@@ -24,22 +34,15 @@ body {
   position: sticky;
   top: 0;
   z-index: 10;
-  height: 2.8rem;
+  height: 57px;
   display: flex;
   align-items: center;
 }
 
 .logo {
-  color: #fff;
-  text-align: left;
-  font-weight: 300;
   cursor: pointer;
-  transition: 0.25s ease-in-out;
-  font-size: 1.25rem;
-}
-
-.logo:hover {
-  opacity: 0.9;
+  width: 110px;
+  padding: 0.625rem;
 }
 
 h1 {
@@ -58,22 +61,16 @@ h2 {
   margin: 2.5rem 0;
 }
 
-/* For debugging  - to visualise the box model*/
-/* .box-padding {
-  padding: 20px 40px;
-  margin-top: 50px;
-  margin-bottom: 50px;
-} */
+.triadic,
+.tetradic {
+  display: none;
+}
 
 /* Add flexbox */
 .headline-container,
 .page-container {
   display: flex;
   flex-direction: column;
-}
-
-div.headline-container .box-padding {
-  padding: 0; /*Removes padding for headline*/
 }
 
 .page-container {
@@ -88,7 +85,9 @@ div.headline-container .box-padding {
 
 label {
   display: block;
+  margin: 0 0 1rem 1rem;
   font-size: 1rem;
+  font-weight: 400;
 }
 
 input,
@@ -107,73 +106,104 @@ select {
   cursor: pointer;
 }
 
+input:focus,
+select:focus {
+  outline: 1px solid #038cfc;
+}
+
 select {
   appearance: none;
   background-image: url("img/chevron-down.png");
   background-repeat: no-repeat;
   background-position: 95%;
+  background: #f2f3f5;
 }
 
 /* BOX PALETTE */
 .color-palette {
   margin-top: 1rem;
   display: flex;
+}
+
+.swatch {
+  height: 58px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+}
+
+.colorList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 12px;
+  display: flex;
+
+  .swatch {
+    border-radius: 0;
+  }
+
+  li {
+    flex: 1;
+    cursor: pointer;
+    transition: 0.4s ease;
+  }
+
+  li:hover {
+    scale: 1.05;
+  }
+
+  li:first-child {
+    .swatch {
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+    }
+  }
+
+  li:last-child {
+    .swatch {
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+  }
+}
+
+/* Footer */
+.main-footer {
+  margin: 3.625rem 0 2rem;
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+
+.main-footer a {
+  color: #737373;
+}
+
+.main-footer .container {
+  display: flex;
+  align-items: center;
   justify-content: center;
 }
 
-.box {
-  padding: 1.125rem 3rem;
-  flex: 1;
-  text-align: center;
+.github-logo {
+  width: 24px;
+  margin-right: 8px;
 }
-
-.box1 {
-  background: #f719ff;
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
-}
-
-.box2 {
-  background: #73ff19;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
-}
-
-.box3 {
-  background: red;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
-  display: none;
-}
-
-.box4 {
-  background: yellow;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
-  display: none;
-}
-
-/*The background colours are just temporary, it's just that we can visualise whether @media query works. Will be removed later on*/
-/* Mobile Styles */
-@media only screen and (max-width: 400px) {
-  body {
-    background-color: #f09a9d; /* Red */
-  }
-}
-
+/* ################ */
 /* Tablet Styles */
-@media only screen and (min-width: 401px) and (max-width: 960px) {
-  body {
-    background-color: #f5cf8e; /* Yellow */
+/* ################# */
+@media only screen and (min-width: 768px) and (max-width: 960px) {
+  .main-footer .container {
+    justify-content: flex-start;
   }
 }
-
+/* ################# */
 /* Desktop Styles */
-@media only screen and (min-width: 961px) {
-  body {
-    background-color: #b2d6ff; /* Blue */
-  }
+/* ################### */
 
+@media only screen and (min-width: 961px) {
   h1 {
     font-size: 4rem;
     margin-top: 3.125rem;
@@ -187,15 +217,31 @@ select {
     font-size: 1.25rem;
   }
 
-  .desktop-row {
-    flex-direction: row-reverse;
-    justify-content: start;
-    gap: 7rem;
+  .headline-container {
+    position: relative;
   }
 
+  .desktop-row {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  .dropdown-color {
+    position: absolute;
+    left: 0;
+    top: 40%;
+  }
   input,
   select {
-    max-width: 500px;
+    max-width: 460px;
+  }
+
+  .swatch {
+    height: 112px;
+  }
+
+  .main-footer .container {
+    justify-content: flex-start;
   }
 }
 
