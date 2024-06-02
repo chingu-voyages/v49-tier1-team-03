@@ -20,6 +20,9 @@ var colorPicker = new iro.ColorPicker(".picker", {
       component: iro.ui.Slider,
       options: {
         handleSvg: "#sliderHandle",
+        sliderType: "saturation",
+        borderWidth: 1,
+        borderColor: "#e4e4e4",
       },
     },
   ],
