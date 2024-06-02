@@ -131,7 +131,6 @@ select {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.875rem;
 }
 
 .colorList {
@@ -148,7 +147,7 @@ select {
   li {
     flex: 1;
     cursor: pointer;
-    transition: 0.4s ease;
+    transition: 0.4s ease-in-out;
   }
 
   li:hover {
@@ -173,12 +172,13 @@ select {
 /* Footer */
 .main-footer {
   margin: 3.625rem 0 2rem;
-  font-size: 0.7rem;
+
   white-space: nowrap;
 }
 
 .main-footer a {
   color: #737373;
+  font-size: 0.7rem;
 }
 
 .main-footer .container {
@@ -197,6 +197,28 @@ select {
 @media only screen and (min-width: 768px) and (max-width: 960px) {
   .main-footer .container {
     justify-content: flex-start;
+  }
+
+  h1 {
+    font-size: 4rem;
+    margin-top: 3.125rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  label {
+    font-size: 1.25rem;
+  }
+
+  input,
+  select {
+    font-size: 1.125rem;
+  }
+
+  .swatch {
+    font-size: 1.125rem;
   }
 }
 /* ################# */
@@ -231,13 +253,16 @@ select {
     left: 0;
     top: 40%;
   }
+
   input,
   select {
+    font-size: 1.125rem;
     max-width: 460px;
   }
 
   .swatch {
     height: 112px;
+    font-size: 1.125rem;
   }
 
   .main-footer .container {
