@@ -8,7 +8,21 @@ var colorPicker = new iro.ColorPicker(".picker", {
   // Set the initial color to pure red
   color: "#f719ff",
   id: "default",
-  handleSvg: "#handle",
+  layout: [
+    {
+      component: iro.ui.Wheel,
+      options: {
+        handleSvg: "#pickerHandle",
+        // activeHandleRadius: "#sliderSecondary",
+      },
+    },
+    {
+      component: iro.ui.Slider,
+      options: {
+        handleSvg: "#sliderHandle",
+      },
+    },
+  ],
 });
 
 // Get user selection by referencing the id selector "hexInput"
