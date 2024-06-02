@@ -8,6 +8,7 @@ var colorPicker = new iro.ColorPicker(".picker", {
   // Set the initial color to pure red
   color: "#f719ff",
   id: "default",
+  handleSvg: "#handle",
 });
 
 // Get user selection by referencing the id selector "hexInput"
