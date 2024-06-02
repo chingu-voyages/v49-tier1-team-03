@@ -117,8 +117,12 @@ async function groqSuggestions(userHexCode, colorHarmony) {
   console.log("groq colorHarmony", colorHarmony);
   let systemPrompt =
     "You are an expert on color harmony.  Include base color as part of the suggestion. Do not give any explanation. Use space to separate suggestions";
-  let userPrompt = `Color harmony is "${colorHarmony}". Base color is "${userHexCode}". Include base color in suggestion too. Hex Code only.`;
+  let userPrompt = `Color harmony is ${colorHarmony}. Base color is ${userHexCode}. Include base color in suggestion too. Hex Code only.`;
   console.log("userPrompt", userPrompt);
+
+  const url = "https://api.groq.com/openai/v1/chat/completions";
+
+  const apiKey = `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`;
 }
 
 // Other implementation of color palette with no hexcode on swatches
