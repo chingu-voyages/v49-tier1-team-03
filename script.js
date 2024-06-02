@@ -40,6 +40,11 @@ colorPicker.on(["color:init", "color:change"], function (color) {
   console.log("hexInput.value", hexInput.value); // Debugging - prints selected value in console
 });
 
+//When the user types something in the input field and hit enter -> The "change" event is triggered - the color wheel will be updated with user's color
+hexInput.addEventListener("change", function () {
+  colorPicker.color.hexString = this.value;
+});
+
 // Initialise user_hex variable
 let userHexCode = 0;
 let colorHarmony = 0;
