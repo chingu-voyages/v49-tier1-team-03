@@ -5,65 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
     <title>Colour Matching App</title>
+    <link rel="shortcut icon" href="img/favicon.png" />
   </head>
   <body>
     <header class="main-header">
       <div class="container">
-        <p class="logo">ColorCraze</p>
+        <div class="logo">
+          <img src="img/logo_ gradient.svg" alt="logo icon" />
+        </div>
       </div>
     </header>
     <div class="headline-container container">
-      <div class="box-padding">
-        <h1>Color Wheel</h1>
-        <h2>Visualize and Combine Color Like a Pro</h2>
-      </div>
+      <h1>Color Wheel</h1>
+      <h2>Visualize and Combine Color Like a Pro</h2>
+
       <div class="page-container container desktop-row">
         <!-- the actual wheel -->
         <div class="picker"></div>
-        <!-- <div class="triadic"></div>
-        <div class="tetradic"></div> -->
+        <div class="triadic"></div>
+        <div class="tetradic"></div>
         <div>
-          <div class="box-padding">
-            <!-- Dropdown -->
-            <div class="dropdown-color">
-              <!-- Hex input field -->
-              <label for="hexInput">1. Pick a color</label>
-              <input type="text" id="hexInput" placeholder="Hex Code" />
-              <!-- Colour harmony selection -->
-              <label for="combinations">2. Pick a color combination</label>
-              <select name="combinations" id="combinations">
-                <option selected value="Complementary">Complementary</option>
-                <option value="Monochromatic">Monochromatic</option>
-                <option value="Analogous">Analogous</option>
-                <option value="Triadic">Triadic</option>
-                <option value="Tetradic">Tetradic</option>
-              </select>
+          <!-- Dropdown -->
+          <div class="dropdown-color">
+            <label for="hexInput">1. Pick a color</label>
+            <input type="text" id="hexInput" placeholder="Hex Code" />
 
-              <label>3. Review color palette</label>
-              <div class="color-palette">
-                <!-- <div class="box box1">Hex</div>
+            <label for="combinations">2. Pick a color combination</label>
+            <select name="combinations" id="combinations">
+              <option selected value="Complementary">Complementary</option>
+              <option value="Monochromatic">Monochromatic</option>
+              <option value="Analogous">Analogous</option>
+              <option value="Triadic">Triadic</option>
+              <option value="Tetradic">Tetradic</option>
+            </select>
+
+            <label>3. Review color palette</label>
+            <ul id="colorPalette" class="color-palette colorList">
+              <!-- <div class="box box1">Hex</div>
                 <div class="box box2">Hex</div>
                 <div class="box box3">Hex</div>
                 <div class="box box4">Hex</div> -->
-                <ul id="colorPalette"></ul>
-              </div>
-            </div>
+            </ul>
           </div>
         </div>
-
       </div>
     </div>
-  </div>
-  <footer class="main-footer">
-    <div class="container">
-      <img class="github-logo" src="img/github.png" alt="github logo">
-      <a href="https://github.com/chingu-voyages/voyage-project-tier1-color-explorer"
-        target="_blank">https://github.com/chingu-voyages/v49-tier1-team-03</a>
-    </div>
-  </footer>
+    <footer class="main-footer">
+      <div class="container">
+        <img class="github-logo" src="img/github.png" alt="github logo" />
+        <a
+          href="https://github.com/chingu-voyages/voyage-project-tier1-color-explorer"
+          target="_blank"
+          >https://github.com/chingu-voyages/v49-tier1-team-03</a
+        >
+      </div>
+    </footer>
 
-  <!-- IRO.JS library -->
-  <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
-  <script src="script.js"></script>
-</body>
+    <!-- IRO.JS library -->
+    <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
