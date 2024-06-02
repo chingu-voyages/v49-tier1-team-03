@@ -78,6 +78,7 @@ function getColorHarmony() {
   console.log("userHexCode", userHexCode);
 
   // Get suggestion from groq ai
+  let colorSuggestion = groqSuggestions(userHexCode, colorHarmony);
 
   // Add color suggestion to color array
   // add a color to the color picker
@@ -109,6 +110,49 @@ colorPicker.on(["mount", "color:change", "color:init"], function () {
       `;
   });
 });
+
+// groq Ai suggestion
+async function groqSuggestions(userHexCode, colorHarmony) {
+  console.log("groq userHexCode", userHexCode);
+  console.log("groq colorHarmony", colorHarmony);
+  let systemPrompt =
+    "You are an expert on color harmony.  Include base color as part of the suggestion. Do not give any explanation. Use space to separate suggestions";
+  let userPrompt = `Color harmony is "${colorHarmony}". Base color is "${userHexCode}". Include base color in suggestion too. Hex Code only.`;
+  console.log("userPrompt", userPrompt);
+
+  const url = "https://api.groq.com/openai/v1/chat/completions";
+
+  const apiKey = `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`;
+
+  // Make a POST request to the GroqAI API to get chat completions
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify({
+      messages: [
+        {
+          role: "system",
+          content: systemPrompt,
+        },
+        {
+          role: "user",
+          content: userPrompt,
+        },
+      ],
+      temperature: 0.6,
+      model: "llama3-70b-8192",
+      max_tokens: 30,
+      // stream: true,
+    }),
+  });
+
+  //Log response in json format
+  const groqData = await response.json();
+  console.log("groqData", groqData);
+}
 
 // Other implementation of color palette with no hexcode on swatches
 
