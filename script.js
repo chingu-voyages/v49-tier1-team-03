@@ -22,7 +22,7 @@ var colorPicker = new iro.ColorPicker(".picker", {
       options: {
         handleSvg: "#sliderHandle",
         sliderType: "saturation",
-        borderWidth: 1,
+        borderWidth: 1.3,
         borderColor: "#e4e4e4",
       },
     },
