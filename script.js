@@ -36,7 +36,7 @@ var hexInput = document.getElementById("hexInput");
 // https://iro.js.org/guide.html#color-picker-events
 colorPicker.on(["color:init", "color:change"], function (color) {
   // Using the selected color: https://iro.js.org/guide.html#selected-color-api
-  hexInput.value = color.hexString; // the input field is updated with the color's hex string.
+  hexInput.value = colorPicker.colors[0].hexString; // the input field is updated with the base color selected - stored in index 0 of colors array
   console.log("color.hexString", color.hexString); // Debugging - prints selected value in console
   console.log("hexInput.value", hexInput.value); // Debugging - prints selected value in console
 });
