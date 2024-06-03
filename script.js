@@ -55,6 +55,8 @@ let colorHarmony = 0;
 // Get user color harmony selection
 document.addEventListener("DOMContentLoaded", getColorHarmony);
 
+let combinations = document.getElementById("combinations");
+console.log("combinations", combinations);
 combinations.addEventListener("change", getColorHarmony);
 
 function getColorHarmony() {
@@ -64,9 +66,6 @@ function getColorHarmony() {
   }
 
   console.log("colorPicker.colors.length", colorPicker.colors.length); //debugging. prints current color array length
-
-  let combinations = document.getElementById("combinations");
-  console.log("combinations", combinations);
 
   console.log("colorPicker.colors.length", colorPicker.colors.length);
 
@@ -78,13 +77,18 @@ function getColorHarmony() {
   console.log("userHexCode", userHexCode);
 
   // Get suggestion from groq ai
-  let colorSuggestion = groqSuggestions(userHexCode, colorHarmony);
+  let colorSuggestion = groqSuggestions(userHexCode, colorHarmony).then(
+    (result) => {
+      colorSuggestion = result;
+    }
+  );
+  console.log("after initial call", colorSuggestion);
 
   // Add color suggestion to color array
   // add a color to the color picker
   // this will add the color to the end of the colors array
-  colorPicker.addColor("#ff85e0"); // colors are temporary. will be changed to groq ai suggestion
-  colorPicker.addColor("#d6f6ff");
+  // colorPicker.addColor("#ff85e0"); // colors are temporary. will be changed to groq ai suggestion
+  // colorPicker.addColor("#d6f6ff");
   // colorPicker.addColor("#59a7ff");
 
   console.log("colorPicker.colors.length", colorPicker.colors.length); //debugging. prints current color array length
@@ -99,7 +103,7 @@ const colorPalette = document.getElementById("colorPalette");
 // When there is a change on the colour wheel, html element is updated and displays colors from color array
 colorPicker.on(["mount", "color:change", "color:init"], function () {
   colorPalette.innerHTML = "";
-  console.log("colors array", colorPicker.colors);
+  // console.log("colors array", colorPicker.colors);
   colorPicker.colors.forEach((color) => {
     const hexString = color.hexString;
     const index = color.index; //debugging
@@ -123,6 +127,55 @@ async function groqSuggestions(userHexCode, colorHarmony) {
   const url = "https://api.groq.com/openai/v1/chat/completions";
 
   const apiKey = `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`;
+
+  // Make a POST request to the GroqAI API to get chat completions
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify({
+      messages: [
+        {
+          role: "system",
+          content: systemPrompt,
+        },
+        {
+          role: "user",
+          content: userPrompt,
+        },
+      ],
+      temperature: 0.6,
+      model: "llama3-70b-8192",
+      max_tokens: 30,
+      // stream: true,
+    }),
+  });
+
+  //Log response in json format
+  const groqData = await response.json();
+  console.log("groqData", groqData);
+
+  const colorSuggestion = await groqData.choices[0].message.content;
+  console.log("colorSuggestion", colorSuggestion);
+  console.log(typeof colorSuggestion);
+
+  // Split colorSuggestion into an array
+  let suggestionArray = colorSuggestion.split(" ");
+
+  console.log("suggestionArray", suggestionArray);
+
+  // return suggestionArray;
+
+  // Add to color array
+  colorPicker.colors = [];
+  for (let suggestion of suggestionArray) {
+    console.log("suggestion", suggestion);
+    let hex = suggestion;
+    colorPicker.addColor(hex);
+    console.log("colors array", colorPicker.colors);
+  }
 }
 
 // Other implementation of color palette with no hexcode on swatches
