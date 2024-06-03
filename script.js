@@ -120,8 +120,8 @@ async function groqSuggestions(userHexCode, colorHarmony) {
   console.log("groq userHexCode", userHexCode);
   console.log("groq colorHarmony", colorHarmony);
   let systemPrompt =
-    "You are an expert on color harmony.  Include base color as part of the suggestion. Do not give any explanation. Use space to separate suggestions";
-  let userPrompt = `Color harmony is ${colorHarmony}. Base color is ${userHexCode}. Include base color in suggestion too. Hex Code only.`;
+    "You are an expert on color harmony.  Do not include base color as part of the suggestion. Do not give any explanation. Use space to separate suggestions";
+  let userPrompt = `Color harmony is ${colorHarmony}. Base color is ${userHexCode}. Do not include base color in suggestion too. Hex Code only.`;
   console.log("userPrompt", userPrompt);
 
   const url = "https://api.groq.com/openai/v1/chat/completions";
@@ -169,7 +169,7 @@ async function groqSuggestions(userHexCode, colorHarmony) {
   // return suggestionArray;
 
   // Add to color array
-  colorPicker.colors = [];
+  // colorPicker.colors = [];
   for (let suggestion of suggestionArray) {
     console.log("suggestion", suggestion);
     let hex = suggestion;
