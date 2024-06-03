@@ -97,7 +97,6 @@ select {
   font-weight: 300;
   font-family: inherit;
   margin: 0.6rem 0 1.3rem;
-  margin: 0.5rem auto;
   display: block;
   outline: none;
   padding: 0.75rem 1.25rem;
@@ -116,7 +115,6 @@ select {
   background-image: url("img/chevron-down.png");
   background-repeat: no-repeat;
   background-position: 95%;
-  background: #f2f3f5;
 }
 
 /* BOX PALETTE */
