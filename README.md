@@ -51,7 +51,7 @@ This webpage is responsive and was built based on a "mobile-first" approach.
 ## Limitations
 Hue Harmony relies on connection to Groq AI API so if the API is down or became deprecated, this webapp will not work and colour suggestion will not be displayed. 
 
-Other than that, the quality of the color suggestion relies on the output from llama3-70b-8192 model via connection to Groq AI API. With current limitation on AI generation, the color suggestion may be inaccurate.
+Other than that, the quality of the color suggestion relies on the output from llama3-70b-8192 model via connection to Groq AI API. With the current limitation on AI generation, the color suggestion may be inaccurate.
 
 ## Our Team
 
