@@ -46,18 +46,35 @@ hexInput.addEventListener("change", function () {
   colorPicker.color.hexString = this.value;
 });
 
-// Initialise user_hex variable
+// Initialise variables
 let userHexCode = 0;
 let colorHarmony = 0;
 
-// since the following funciton will called twice ie get color harmony and call groq ai. Better to create a separate function.
-
-// Get user color harmony selection
+// Get color suggestion when webpage refreshes
 document.addEventListener("DOMContentLoaded", getColorHarmony);
 
+// Get color suggestions when user selects color harmony selection
 let combinations = document.getElementById("combinations");
 console.log("combinations", combinations);
 combinations.addEventListener("change", getColorHarmony);
+
+// Dynamic Colour Palette implementation - with hexcode displayed on swatches and works closely with groq ai integration
+const colorPalette = document.getElementById("colorPalette");
+
+// https://iro.js.org/guide.html#color-picker-events
+// When there is a change on the colour wheel, html element is updated and displays colors from color array
+colorPicker.on(["mount", "color:change", "color:init"], function () {
+  colorPalette.innerHTML = "";
+  // console.log("colors array", colorPicker.colors);
+  colorPicker.colors.forEach((color) => {
+    const hexString = color.hexString;
+    colorPalette.innerHTML += `
+        <li>
+          <div class="swatch" style="background: ${hexString}">${hexString}</div>
+        </li>
+      `;
+  });
+});
 
 function getColorHarmony() {
   // If there are colors in the color array, reset the array to only store the first color aka the active color. This is so that when it comes to creating dynamic color palette, we're not including the previous color suggestion if the webpages hasn't been refreshed yet.
@@ -66,8 +83,6 @@ function getColorHarmony() {
   }
 
   console.log("colorPicker.colors.length", colorPicker.colors.length); //debugging. prints current color array length
-
-  console.log("colorPicker.colors.length", colorPicker.colors.length);
 
   // Get user color harmony selection
   colorHarmony = combinations.value;
@@ -93,27 +108,6 @@ function getColorHarmony() {
 
   console.log("colorPicker.colors.length", colorPicker.colors.length); //debugging. prints current color array length
 }
-
-/*
-  Dynamic Colour Palette implementation - with hexcode displayed on swatches and works closely with groq ai integration
-  */
-const colorPalette = document.getElementById("colorPalette");
-
-// https://iro.js.org/guide.html#color-picker-events
-// When there is a change on the colour wheel, html element is updated and displays colors from color array
-colorPicker.on(["mount", "color:change", "color:init"], function () {
-  colorPalette.innerHTML = "";
-  // console.log("colors array", colorPicker.colors);
-  colorPicker.colors.forEach((color) => {
-    const hexString = color.hexString;
-    const index = color.index; //debugging
-    colorPalette.innerHTML += `
-        <li>
-          <div class="swatch" style="background: ${hexString}">${hexString}</div>
-        </li>
-      `;
-  });
-});
 
 // groq Ai suggestion
 async function groqSuggestions(userHexCode, colorHarmony) {
@@ -149,7 +143,6 @@ async function groqSuggestions(userHexCode, colorHarmony) {
       temperature: 0.6,
       model: "llama3-70b-8192",
       max_tokens: 30,
-      // stream: true,
     }),
   });
 
@@ -166,10 +159,7 @@ async function groqSuggestions(userHexCode, colorHarmony) {
 
   console.log("suggestionArray", suggestionArray);
 
-  // return suggestionArray;
-
   // Add to color array
-  // colorPicker.colors = [];
   for (let suggestion of suggestionArray) {
     console.log("suggestion", suggestion);
     let hex = suggestion;
