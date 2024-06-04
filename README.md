@@ -34,7 +34,11 @@ This webpage is responsive and was built based on a "mobile-first" approach.
 
 ### Features
 
-User can select their base color either via the color wheel picker or input the color hexcode into the input field. User can then select their color harmony of choice via the drop down menu. After the selection is made, Hue Harmony will display color suggestion onto a color palette.
+*Color Selection*: User can select their base color either via the color wheel picker or input the color hexcode into the input field.
+
+*Color Harmony Selection*: User can then select their color harmony of choice via the drop down menu. 
+
+*Color Palette Output*: After the selection is made, Hue Harmony will display color suggestion onto a color palette.
 
 **Mobile/Tablet View Demo**
 
@@ -43,6 +47,11 @@ User can select their base color either via the color wheel picker or input the 
 **Desktop View Demo**
 
 <img src="img/desktop-view.gif" align="center" width="450">
+
+## Limitations
+Hue Harmony relies on connection to Groq AI API so if the API is down or became deprecated, this webapp will not work and colour suggestion will not be displayed. 
+
+Other than that, the quality of the color suggestion relies on the output from llama3-70b-8192 model via connection to Groq AI API. With current limitation on AI generation, the color suggestion may be inaccurate.
 
 ## Our Team
 
