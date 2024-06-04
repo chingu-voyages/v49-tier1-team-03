@@ -47,6 +47,7 @@ User can select their base color either via the color wheel picker or input the 
 ## Our Team
 
 - Ikechukwu Ezeji (Product Owner): [GitHub](https://github.com/Ikeze) / [LinkedIn](https://linkedin.com/in/ikechukwuezeji/)
+- Jennifer Joynt (Scrum Master): [GitHub](https://github.com/jenj1976) / [LinkedIn](https://www.linkedin.com/in/jennifer-joynt-06a8581a)
 - Anita Boakye-Yiadom (Scrum Master): [GitHub](https://github.com/AnitaBoakye) / [LinkedIn](https://linkedin.com/in/anitaboakyeyiadom/)
 - Liat Cohen (UI/UX Designer): [GitHub](https://github.com/LiatPoschCohen) / [LinkedIn](https://linkedin.com/in/liatposchcohen)
 - Michelle Lim (Developer): [GitHub](https://github.com/flora8heart) / [LinkedIn](https://linkedin.com/in/michelleknlim)
