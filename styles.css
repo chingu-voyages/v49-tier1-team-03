@@ -194,7 +194,7 @@ select {
 /* ################ */
 /* Tablet Styles */
 /* ################# */
-@media only screen and (min-width: 768px) and (max-width: 960px) {
+@media only screen and (min-width: 768px) and (max-width: 1000px) {
   .main-footer .container {
     justify-content: flex-start;
   }
@@ -225,7 +225,7 @@ select {
 /* Desktop Styles */
 /* ################### */
 
-@media only screen and (min-width: 961px) {
+@media only screen and (min-width: 1001px) {
   h1 {
     font-size: 4rem;
     margin-top: 3.125rem;
