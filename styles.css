@@ -275,7 +275,6 @@ select {
 /* ################### */
 @media (min-width: 1400px) {
   .container {
-    background: red;
     max-width: 1800px;
   }
 }
