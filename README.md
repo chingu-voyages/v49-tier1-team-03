@@ -18,7 +18,10 @@ Live link is [here](https://chingu-voyages.github.io/v49-tier1-team-03/).
 
 ### Design
 
-This webpage is responsive and was built based on a "mobile-first" approach.
+This webpage is responsive and was built based on a "mobile-first" approach. A mobile-first approach is a way to build an app or website by starting with mobile phones and then adding media queries for larger screens, such as tablets and desktops.
+Media queries allows you to add styles depending on the device type.
+The mobile-first approach is a personal choice for developers because some prefer to start with the desktop and then add media queries for smaller screens.
+We decided to use the mobile-first approach because, for mobile, all the items are already stacked one on top of the other, and you just need to add space using margin and padding.
 
 **Mobile view**
 
@@ -34,11 +37,11 @@ This webpage is responsive and was built based on a "mobile-first" approach.
 
 ### Features
 
-*Color Selection*: User can select their base color either via the color wheel picker or input the color hexcode into the input field.
+_Color Selection_: User can select their base color either via the color wheel picker or input the color hexcode into the input field.
 
-*Color Harmony Selection*: User can then select their color harmony of choice via the drop down menu. 
+_Color Harmony Selection_: User can then select their color harmony of choice via the drop down menu.
 
-*Color Palette Output*: After the selection is made, Hue Harmony will display color suggestion onto a color palette.
+_Color Palette Output_: After the selection is made, Hue Harmony will display color suggestion onto a color palette.
 
 **Mobile/Tablet View Demo**
 
@@ -49,7 +52,8 @@ This webpage is responsive and was built based on a "mobile-first" approach.
 <img src="img/desktop-view.gif" align="center" width="450">
 
 ## Limitations
-Hue Harmony relies on connection to Groq AI API so if the API is down or became deprecated, this webapp will not work and colour suggestion will not be displayed. 
+
+Hue Harmony relies on connection to Groq AI API so if the API is down or became deprecated, this webapp will not work and colour suggestion will not be displayed.
 
 Other than that, the quality of the color suggestion relies on the output from llama3-70b-8192 model via connection to Groq AI API. With the current limitation on AI generation, the color suggestion may be inaccurate.
 
