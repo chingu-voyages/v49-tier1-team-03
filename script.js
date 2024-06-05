@@ -24,6 +24,7 @@ var colorPicker = new iro.ColorPicker(".picker", {
         sliderType: "saturation",
         borderWidth: 1.3,
         borderColor: "#e4e4e4",
+        margin: 52,
       },
     },
   ],
