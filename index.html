@@ -1,92 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Colour Matching App</title>
-    <link rel="shortcut icon" href="img/favicon.png" />
-    <!-- IRO.JS library -->
-    <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5" defer></script>
-    <script src="script.js" defer></script>
-  </head>
-  <body>
-    <header class="main-header">
-      <div class="container">
-        <div class="logo">
-          <img src="img/logo_ gradient.svg" alt="logo icon" />
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Colour Matching App</title>
+  <link rel="shortcut icon" href="img/favicon.png" />
+  <!-- IRO.JS library -->
+  <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="main-header">
+    <div class="container">
+      <div class="logo">
+        <img src="img/logo_blue.svg" alt="logo icon" />
       </div>
-    </header>
-    <!-- svg icon for color picker handle -->
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs>
-        <g id="pickerHandle">
-          <path
-            d="M20 10C20 15.5228 15.5228 20 10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10ZM3.10507 10C3.10507 13.808 6.19204 16.8949 10 16.8949C13.808 16.8949 16.8949 13.808 16.8949 10C16.8949 6.19204 13.808 3.10507 10 3.10507C6.19204 3.10507 3.10507 6.19204 3.10507 10Z"
-            fill="white"
-          />
-        </g>
-      </defs>
-    </svg>
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs>
-        <g id="sliderHandle">
-          <circle cx="8" cy="8" r="14" fill="white" stroke="#E0E0E0" />
-        </g>
-      </defs>
-    </svg>
+    </div>
+  </header>
+  <!-- svg icon for color picker handle -->
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <g id="pickerHandle">
+        <path
+          d="M20 10C20 15.5228 15.5228 20 10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10ZM3.10507 10C3.10507 13.808 6.19204 16.8949 10 16.8949C13.808 16.8949 16.8949 13.808 16.8949 10C16.8949 6.19204 13.808 3.10507 10 3.10507C6.19204 3.10507 3.10507 6.19204 3.10507 10Z"
+          fill="white" />
+      </g>
+    </defs>
+  </svg>
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <g id="sliderHandle">
+        <circle cx="8" cy="8" r="14" fill="white" stroke="#E0E0E0" />
+      </g>
+    </defs>
+  </svg>
 
-    <div class="headline-container container">
-      <h1>Color Wheel</h1>
-      <h2>Visualize and Combine Color Like a Pro</h2>
+  <div class="headline-container container">
+    <h1>Color Wheel</h1>
+    <h2>Visualize and Combine Color Like a Pro</h2>
 
-      <div class="page-container container desktop-row">
-        <!-- the actual wheel -->
-        <div class="picker"></div>
-        <div>
-          <!-- Dropdown -->
-          <div class="dropdown-color">
-            <label for="hexInput">1. Pick a color</label>
-            <input type="text" id="hexInput" placeholder="Hex Code" />
+    <div class="page-container container desktop-row">
+      <!-- the actual wheel -->
+      <div class="picker"></div>
+      <div>
+        <!-- Dropdown -->
+        <div class="dropdown-color">
+          <label for="hexInput">1. Pick a color</label>
+          <input type="text" id="hexInput" placeholder="Hex Code" />
 
-            <label for="combinations">2. Pick a color combination</label>
-            <select name="combinations" id="combinations">
-              <option selected value="Complementary">Complementary</option>
-              <option value="Monochromatic">Monochromatic</option>
-              <option value="Analogous">Analogous</option>
-              <option value="Triadic">Triadic</option>
-              <option value="Tetradic">Tetradic</option>
-            </select>
+          <label for="combinations">2. Pick a color combination</label>
+          <select name="combinations" id="combinations">
+            <option selected value="Complementary">Complementary</option>
+            <option value="Monochromatic">Monochromatic</option>
+            <option value="Analogous">Analogous</option>
+            <option value="Triadic">Triadic</option>
+            <option value="Tetradic">Tetradic</option>
+          </select>
 
-            <label>3. Review color palette</label>
-            <ul id="colorPalette" class="color-palette colorList">
-            </ul>
-          </div>
+          <label>3. Review color palette</label>
+          <ul id="colorPalette" class="color-palette colorList">
+          </ul>
         </div>
       </div>
     </div>
-    <footer class="main-footer">
-      <div class="container">
-        <img class="github-logo" src="img/github.png" alt="github logo" />
-        <a
-          href="https://github.com/chingu-voyages/v49-tier1-team-03"
-          target="_blank"
-          >https://github.com/chingu-voyages/v49-tier1-team-03</a
-        >
-      </div>
-    </footer>
-  </body>
+  </div>
+  <footer class="main-footer">
+    <div class="container">
+      <img class="github-logo" src="img/github.png" alt="github logo" />
+      <a href="https://github.com/chingu-voyages/v49-tier1-team-03"
+        target="_blank">https://github.com/chingu-voyages/v49-tier1-team-03</a>
+    </div>
+  </footer>
+</body>
 </html>
