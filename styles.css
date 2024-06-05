@@ -269,3 +269,13 @@ select {
     justify-content: flex-start;
   }
 }
+
+/* ################# */
+/* Bigger Screen */
+/* ################### */
+@media (min-width: 1400px) {
+  .container {
+    background: red;
+    max-width: 1800px;
+  }
+}
