@@ -63,7 +63,7 @@ h2::first-letter {
 /* WHEEL */
 .picker,
 .triadic {
-  margin: 2.5rem 0;
+  margin-top: 3rem;
 }
 
 .triadic,
@@ -86,7 +86,6 @@ h2::first-letter {
 .dropdown-color {
   margin: 2.5rem 0 0;
   color: #000;
-  background-color: red;
 }
 
 label {
@@ -102,8 +101,7 @@ select {
   font-size: 1rem;
   font-weight: 300;
   font-family: inherit;
-  margin: 0.6rem 0 1.3rem;
-  margin: 0.5rem auto;
+  margin-bottom: 1rem;
   display: block;
   outline: none;
   padding: 0.75rem 1.25rem;
@@ -214,14 +212,25 @@ select {
     font-size: 2rem;
   }
 
+  .picker {
+    margin-top: 4rem;
+  }
+
+  .dropdown-color {
+    margin: 2rem 0 1rem;
+    color: #000;
+    background-color: red;
+  }
+
   label {
     font-size: 1.25rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
   }
 
   input,
   select {
     font-size: 1.125rem;
+    margin-bottom: 1.5rem;
   }
 
   .swatch {
@@ -259,6 +268,10 @@ select {
     position: absolute;
     left: 0;
     top: 40%;
+  }
+
+  label {
+    margin-bottom: 1rem;
   }
 
   input,
