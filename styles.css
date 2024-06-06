@@ -55,6 +55,10 @@ h2 {
   font-size: 1.5rem;
   font-weight: 300;
 }
+
+h2::first-letter {
+  text-transform: uppercase;
+}
 /* WHEEL */
 .picker,
 .triadic {
@@ -275,8 +279,7 @@ select {
 /* ################### */
 @media (min-width: 1400px) {
   .container {
-    background-color: red;
-    max-width: 2600px;
+    max-width: 1600px;
     /* padding-right: 13rem; */
   }
 }
