@@ -85,7 +85,6 @@ h2::first-letter {
 /* DROPDOWN COLOR */
 .dropdown-color {
   margin: 2.5rem 0 0;
-  color: #000;
 }
 
 label {
@@ -198,7 +197,7 @@ select {
 /* ################ */
 /* Tablet Styles */
 /* ################# */
-@media only screen and (min-width: 768px) and (max-width: 1000px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
   .main-footer .container {
     justify-content: flex-start;
   }
@@ -218,7 +217,6 @@ select {
 
   .dropdown-color {
     margin: 2rem 0 1rem;
-    color: #000;
   }
 
   label {
@@ -240,7 +238,7 @@ select {
 /* Desktop Styles */
 /* ################### */
 
-@media only screen and (min-width: 1001px) {
+@media only screen and (min-width: 1025px) {
   .headline-container,
   .main-footer .container {
     margin-left: 6rem;
@@ -256,6 +254,7 @@ select {
 
   label {
     font-size: 1.25rem;
+    margin-bottom: 1rem;
   }
 
   .headline-container {
