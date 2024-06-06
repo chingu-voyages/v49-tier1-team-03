@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* border: 1px solid #000; /*debugging - visualise the box model*/*/ 
 }
 
 body {
@@ -34,7 +35,7 @@ img {
   position: sticky;
   top: 0;
   z-index: 10;
-  height: 57px;
+  height: 60px;
   display: flex;
   align-items: center;
 }
@@ -194,6 +195,30 @@ select {
   width: 24px;
   margin-right: 8px;
 }
+
+/* Mobile Styles */
+@media only screen and (max-width: 767px) {
+  .picker {
+    margin-top: -10px;
+  }
+
+  h1 {
+    margin-top: 0;
+  }
+
+  h2 {
+    margin-bottom: 48px;
+  }
+
+  .headline-container {
+    margin-top: -10px;
+  }
+
+  .main-footer {
+    margin-top: 42px;
+  }
+}
+
 /* ################ */
 /* Tablet Styles */
 /* ################# */
@@ -205,14 +230,20 @@ select {
   h1 {
     font-size: 4rem;
     margin: 2.5rem 0 1.5rem;
+    margin-top: 0;
   }
 
   h2 {
     font-size: 2rem;
+    margin-top: 18px 0 0 64px;
+  }
+
+  .headline-container {
+    margin-top: 10px;
   }
 
   .picker {
-    margin-top: 4rem;
+    margin-top: 0;
   }
 
   .dropdown-color {
@@ -249,10 +280,12 @@ select {
   }
   h1 {
     font-size: 4rem;
-    margin-top: 3.125rem;
+    margin-top: 0;
   }
 
   h2 {
+    margin-top: 24px;
+    margin-bottom: 0;
     font-size: 2rem;
   }
 
@@ -264,6 +297,7 @@ select {
   .headline-container {
     position: relative;
     max-width: 950px;
+    margin-top: 20px;
   }
 
   .desktop-row {
@@ -272,9 +306,10 @@ select {
   }
 
   .dropdown-color {
+    /* background-color: #000; */
     position: absolute;
     left: 0;
-    top: 40%;
+    top: 30%;
   }
 
   label {
