@@ -175,8 +175,8 @@ select {
 /* Footer */
 .main-footer {
   margin: 3.625rem 0 2rem;
-
   white-space: nowrap;
+  margin-top: auto;
 }
 
 .main-footer a {
