@@ -1,4 +1,4 @@
-<img src="img/logo_ gradient.svg" align="center" width="250">
+<img src="img/logo_blue_v2.svg" align="center" width="250">
 
 # Hue Harmony
 
