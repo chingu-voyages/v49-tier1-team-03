@@ -44,7 +44,7 @@ img {
 .logo {
   cursor: pointer;
   width: 150px;
-  padding: 0.625rem 0.625rem 0.625rem 0;
+  padding: 0.625rem;
 }
 
 h1 {
@@ -210,6 +210,10 @@ select {
     margin-top: -10px;
     margin-bottom: 40px;
   }
+
+  .logo {
+    padding: 0.625rem 0.625rem 0.625rem 0;
+  }
 }
 
 /* ################ */
@@ -234,6 +238,10 @@ select {
   .headline-container {
     margin-top: -10px;
     margin-bottom: 10px;
+  }
+
+  .logo {
+    padding: 0.625rem 0.625rem 0.625rem 0;
   }
 
   .picker {
@@ -295,6 +303,10 @@ select {
     max-width: 950px;
     margin-top: -10px;
     margin-bottom: 72px;
+  }
+
+  .logo {
+    padding: 0.625rem 0.625rem 0.625rem 0.8rem;
   }
 
   .desktop-row {
