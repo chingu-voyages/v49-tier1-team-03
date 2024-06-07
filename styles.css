@@ -3,6 +3,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* debugging - visualise the box model */
+  /* border: 1px solid #000; */
 }
 
 body {
@@ -34,19 +36,19 @@ img {
   position: sticky;
   top: 0;
   z-index: 10;
-  height: 57px;
+  height: 60px;
   display: flex;
   align-items: center;
 }
 
 .logo {
   cursor: pointer;
-  width: 110px;
-  padding: 0.625rem;
+  width: 150px;
+  padding: 0.625rem 0.625rem 0.625rem 0;
 }
 
 h1 {
-  margin: 2rem 0 1rem;
+  margin: 1.5rem 0 1rem;
   font-size: 2rem;
   font-weight: 400;
 }
@@ -54,16 +56,15 @@ h1 {
 h2 {
   font-size: 1.5rem;
   font-weight: 300;
-}
-/* WHEEL */
-.picker,
-.triadic {
-  margin: 2.5rem 0;
+  margin-bottom: 3rem;
 }
 
-.triadic,
-.tetradic {
-  display: none;
+h2::first-letter {
+  text-transform: uppercase;
+}
+/* WHEEL */
+.picker {
+  margin-top: 3rem;
 }
 
 /* Add flexbox */
@@ -79,15 +80,14 @@ h2 {
 
 /* DROPDOWN COLOR */
 .dropdown-color {
-  margin-bottom: 2rem;
-  color: #000;
+  margin: 2.5rem 0 0;
 }
 
 label {
   display: block;
-  margin: 0 0 1rem 1rem;
   font-size: 1rem;
   font-weight: 400;
+  margin-bottom: 0.5rem;
 }
 
 input,
@@ -96,8 +96,7 @@ select {
   font-size: 1rem;
   font-weight: 300;
   font-family: inherit;
-  margin: 0.6rem 0 1.3rem;
-  margin: 0.5rem auto;
+  margin-bottom: 1rem;
   display: block;
   outline: none;
   padding: 0.75rem 1.25rem;
@@ -116,7 +115,7 @@ select {
   background-image: url("img/chevron-down.png");
   background-repeat: no-repeat;
   background-position: 95%;
-  background: #f2f3f5;
+  background-color: #fff;
 }
 
 /* BOX PALETTE */
@@ -172,8 +171,8 @@ select {
 /* Footer */
 .main-footer {
   margin: 3.625rem 0 2rem;
-
   white-space: nowrap;
+  margin-top: auto;
 }
 
 .main-footer a {
@@ -191,30 +190,69 @@ select {
   width: 24px;
   margin-right: 8px;
 }
+
+/* Mobile Styles */
+@media only screen and (max-width: 767px) {
+  .picker {
+    margin-top: -10px;
+  }
+
+  h1 {
+    margin-top: 0;
+  }
+
+  h2 {
+    margin-top: -10px;
+    margin-bottom: 48px;
+  }
+
+  .headline-container {
+    margin-top: -10px;
+    margin-bottom: 40px;
+  }
+}
+
 /* ################ */
 /* Tablet Styles */
 /* ################# */
-@media only screen and (min-width: 768px) and (max-width: 960px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
   .main-footer .container {
     justify-content: flex-start;
   }
 
   h1 {
-    font-size: 4rem;
-    margin-top: 3.125rem;
+    font-size: 3rem;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
   h2 {
     font-size: 2rem;
+    margin-top: 0;
+  }
+
+  .headline-container {
+    margin-top: -10px;
+    margin-bottom: 10px;
+  }
+
+  .picker {
+    margin-top: 0;
+  }
+
+  .dropdown-color {
+    margin: 2rem 0 1rem;
   }
 
   label {
     font-size: 1.25rem;
+    margin-bottom: 0.5rem;
   }
 
   input,
   select {
     font-size: 1.125rem;
+    margin-bottom: 1.5rem;
   }
 
   .swatch {
@@ -225,39 +263,61 @@ select {
 /* Desktop Styles */
 /* ################### */
 
-@media only screen and (min-width: 961px) {
+@media only screen and (min-width: 1025px) {
+  .main-header .container {
+    max-width: 100vw;
+  }
+
+  .headline-container,
+  .main-footer .container {
+    margin-left: 6rem;
+  }
+
   h1 {
     font-size: 4rem;
-    margin-top: 3.125rem;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
   h2 {
+    margin-top: 0;
+    margin-bottom: 0;
     font-size: 2rem;
   }
 
   label {
     font-size: 1.25rem;
+    margin-bottom: 1rem;
   }
 
   .headline-container {
     position: relative;
+    max-width: 950px;
+    margin-top: -10px;
+    margin-bottom: 72px;
   }
 
   .desktop-row {
     flex-direction: row-reverse;
-    justify-content: space-between;
+    justify-content: end;
   }
 
   .dropdown-color {
+    /* background-color: #000; */
     position: absolute;
     left: 0;
-    top: 40%;
+    top: 26.5%;
+  }
+
+  label {
+    margin-bottom: 1rem;
   }
 
   input,
   select {
     font-size: 1.125rem;
-    max-width: 460px;
+    margin-bottom: 2.5rem;
+    max-width: 468px;
   }
 
   .swatch {
@@ -267,5 +327,15 @@ select {
 
   .main-footer .container {
     justify-content: flex-start;
+  }
+}
+
+/* ################# */
+/* Bigger Screen */
+/* ################### */
+@media (min-width: 1750px) {
+  .headline-container,
+  .main-footer .container {
+    margin-left: 9rem;
   }
 }

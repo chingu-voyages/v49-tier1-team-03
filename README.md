@@ -1,42 +1,69 @@
-# voyage-tasks
+<img src="img/logo_blue_v2.svg" align="center" width="250">
 
-Your project's `readme` is as important to success as your code. For 
-this reason you should put as much care into its creation and maintenance
-as you would any other component of the application.
+# Hue Harmony
 
-If you are unsure of what should go into the `readme` let this article,
-written by an experienced Chingu, be your starting point - 
-[Keys to a well written README](https://tinyurl.com/yk3wubft).
+## Overview
 
-And before we go there's "one more thing"! Once you decide what to include
-in your `readme` feel free to replace the text we've provided here.
+Hue harmony is a single page application (SPA) that allows users to get color palette suggestion based on a base color and a color harmony. Hue Harmony leverages the power of AI to provide color palette suggestion for the user.
 
-> Own it & Make it your Own!
+Live link is [here](https://chingu-voyages.github.io/v49-tier1-team-03/).
 
-## Team Documents
+## Built With
 
-You may find these helpful as you work together to organize your project.
+- HTML
+- CSS
+- Javascript
+- [iro.js library](https://iro.js.org)
+- Groq AI API using llama3-70b-8192 model
+- Figma
 
-- [Team Project Ideas](./docs/team_project_ideas.md)
-- [Team Decision Log](./docs/team_decision_log.md)
+### Design
 
-Meeting Agenda templates (located in the `/docs` directory in this repo):
+This webpage is responsive and was built based on a "mobile-first" approach. A mobile-first approach is a way to build an app or website by starting with mobile phones and then adding media queries for larger screens, such as tablets and desktops.
+Media queries allows you to add styles depending on the device type.
+The mobile-first approach is a personal choice for developers because some prefer to start with the desktop and then add media queries for smaller screens.
+We decided to use the mobile-first approach because, for mobile, all the items are already stacked one on top of the other, and you just need to add space using margin and padding.
 
-- Meeting - Voyage Kickoff --> ./docs/meeting-voyage_kickoff.docx
-- Meeting - App Vision & Feature Planning --> ./docs/meeting-vision_and_feature_planning.docx
-- Meeting - Sprint Retrospective, Review, and Planning --> ./docs/meeting-sprint_retrospective_review_and_planning.docx
-- Meeting - Sprint Open Topic Session --> ./docs/meeting-sprint_open_topic_session.docx
+**Mobile view**
+
+<img src="img/phone-view.png" align="center" width="200">
+
+**Tablet view**
+
+<img src="img/tablet-view.png" align="center" width="300">
+
+**Desktop view**
+
+<img src="img/desktop-view.png" align="center" width="450">
+
+### Features
+
+_Color Selection_: User can select their base color either via the color wheel picker or input the color hexcode into the input field.
+
+_Color Harmony Selection_: User can then select their color harmony of choice via the drop down menu.
+
+_Color Palette Output_: After the selection is made, Hue Harmony will display color suggestion onto a color palette.
+
+**Mobile/Tablet View Demo**
+
+<img src="img/tablet-mobile-view.gif" align="center" width="300"><br>
+
+**Desktop View Demo**
+
+<img src="img/desktop-view.gif" align="center" width="450">
+
+## Limitations
+
+Hue Harmony relies on connection to Groq AI API so if the API is down or became deprecated, this webapp will not work and colour suggestion will not be displayed.
+
+Other than that, the quality of the color suggestion relies on the output from llama3-70b-8192 model via connection to Groq AI API. With the current limitation on AI generation, the color suggestion may be inaccurate.
 
 ## Our Team
 
-Everyone on your team should add their name along with a link to their GitHub
-& optionally their LinkedIn profiles below. Do this in Sprint #1 to validate
-your repo access and to practice PR'ing with your team *before* you start
-coding!
-
-- Anita Boakye-Yiadom: [GitHub](https://github.com/AnitaBoakye) / [LinkedIn](https://linkedin.com/in/anitaboakyeyiadom/)
-- Dusan Djergovic: [GitHub](https://github.com/dusandjergovic) / [LinkedIn](https://www.linkedin.com/in/du%C5%A1an-%C4%91ergovi%C4%87-aaa2a4259/)
-- Diego Raffa: [GitHub](https://github.com/Diegoireland1975) / [LinkedIn](https://www.linkedin.com/in/diego-raffa/)
-- Liat Cohen: [GitHub](https://github.com/LiatPoschCohen) / [LinkedIn](https://linkedin.com/in/liatposchcohen) 
-- Ikechukwu Ezeji: [GitHub](https://github.com/Ikeze)) / [LinkedIn](https://linkedin.com/in/ikechukwuezeji/)
-- Michelle Lim: [GitHub](https://github.com/flora8heart) / [LinkedIn](https://linkedin.com/in/michelleknlim)
+- Ikechukwu Ezeji (Product Owner): [GitHub](https://github.com/Ikeze) / [LinkedIn](https://linkedin.com/in/ikechukwuezeji/)
+- Jennifer Joynt (Scrum Master): [GitHub](https://github.com/jenj1976) / [LinkedIn](https://www.linkedin.com/in/jennifer-joynt-06a8581a)
+- Anita Boakye-Yiadom (Scrum Master): [GitHub](https://github.com/AnitaBoakye) / [LinkedIn](https://linkedin.com/in/anitaboakyeyiadom/)
+- Liat Cohen (UI/UX Designer): [GitHub](https://github.com/LiatPoschCohen) / [LinkedIn](https://linkedin.com/in/liatposchcohen)
+- Michelle Lim (Developer): [GitHub](https://github.com/flora8heart) / [LinkedIn](https://linkedin.com/in/michelleknlim)
+- Diego Raffa (Developer): [GitHub](https://github.com/Diegoireland1975) / [LinkedIn](https://www.linkedin.com/in/diego-raffa/)
+- Dusan Djergovic (Developer): [GitHub](https://github.com/dusandjergovic) / [LinkedIn](https://www.linkedin.com/in/du%C5%A1an-%C4%91ergovi%C4%87-aaa2a4259/)

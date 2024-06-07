@@ -12,9 +12,9 @@ var colorPicker = new iro.ColorPicker(".picker", {
     {
       component: iro.ui.Wheel,
       options: {
-        // handleSvg: "#pickerHandle",
-        handleRadius: 6,
-        activeHandleRadius: 12,
+        handleSvg: "#pickerHandle", //This uses custom svg file
+        // handleRadius: 6,
+        // activeHandleRadius: 12,
       },
     },
     {
@@ -24,6 +24,7 @@ var colorPicker = new iro.ColorPicker(".picker", {
         sliderType: "saturation",
         borderWidth: 1.3,
         borderColor: "#e4e4e4",
+        margin: 52,
       },
     },
   ],
@@ -36,9 +37,9 @@ var hexInput = document.getElementById("hexInput");
 // https://iro.js.org/guide.html#color-picker-events
 colorPicker.on(["color:init", "color:change"], function (color) {
   // Using the selected color: https://iro.js.org/guide.html#selected-color-api
-  hexInput.value = color.hexString; // the input field is updated with the color's hex string.
-  console.log("color.hexString", color.hexString); // Debugging - prints selected value in console
-  console.log("hexInput.value", hexInput.value); // Debugging - prints selected value in console
+  hexInput.value = colorPicker.colors[0].hexString; // the input field is updated with the base color selected - stored in index 0 of colors array
+  // console.log("color.hexString", color.hexString); // Debugging - prints selected value in console
+  // console.log("hexInput.value", hexInput.value); // Debugging - prints selected value in console
 });
 
 //When the user types something in the input field and hit enter -> The "change" event is triggered - the color wheel will be updated with user's color
@@ -46,62 +47,28 @@ hexInput.addEventListener("change", function () {
   colorPicker.color.hexString = this.value;
 });
 
-// Initialise user_hex variable
+// Initialise variables
 let userHexCode = 0;
 let colorHarmony = 0;
 
-// since the following funciton will called twice ie get color harmony and call groq ai. Better to create a separate function.
-
-// Get user color harmony selection
+// Get color suggestion when webpage refreshes
 document.addEventListener("DOMContentLoaded", getColorHarmony);
 
+// Get color suggestions when user selects color harmony selection
+let combinations = document.getElementById("combinations");
+// console.log("combinations", combinations);
 combinations.addEventListener("change", getColorHarmony);
 
-function getColorHarmony() {
-  // If there are colors in the color array, reset the array to only store the first color aka the active color. This is so that when it comes to creating dynamic color palette, we're not including the previous color suggestion if the webpages hasn't been refreshed yet.
-  if (colorPicker.colors.length != 0) {
-    colorPicker.colors = [colorPicker.colors[0]];
-  }
-
-  console.log("colorPicker.colors.length", colorPicker.colors.length); //debugging. prints current color array length
-
-  let combinations = document.getElementById("combinations");
-  console.log("combinations", combinations);
-
-  console.log("colorPicker.colors.length", colorPicker.colors.length);
-
-  // Get user color harmony selection
-  colorHarmony = combinations.value;
-  console.log("colorHarmony", colorHarmony);
-
-  userHexCode = hexInput.value;
-  console.log("userHexCode", userHexCode);
-
-  // Get suggestion from groq ai
-
-  // Add color suggestion to color array
-  // add a color to the color picker
-  // this will add the color to the end of the colors array
-  colorPicker.addColor("#ff85e0"); // colors are temporary. will be changed to groq ai suggestion
-  colorPicker.addColor("#d6f6ff");
-  // colorPicker.addColor("#59a7ff");
-
-  console.log("colorPicker.colors.length", colorPicker.colors.length); //debugging. prints current color array length
-}
-
-/*
-  Dynamic Colour Palette implementation - with hexcode displayed on swatches and works closely with groq ai integration
-  */
+// Dynamic Colour Palette implementation - with hexcode displayed on swatches and works closely with groq ai integration
 const colorPalette = document.getElementById("colorPalette");
 
 // https://iro.js.org/guide.html#color-picker-events
 // When there is a change on the colour wheel, html element is updated and displays colors from color array
 colorPicker.on(["mount", "color:change", "color:init"], function () {
   colorPalette.innerHTML = "";
-  console.log("colors array", colorPicker.colors);
+  // console.log("colors array", colorPicker.colors);
   colorPicker.colors.forEach((color) => {
     const hexString = color.hexString;
-    const index = color.index; //debugging
     colorPalette.innerHTML += `
         <li>
           <div class="swatch" style="background: ${hexString}">${hexString}</div>
@@ -110,75 +77,89 @@ colorPicker.on(["mount", "color:change", "color:init"], function () {
   });
 });
 
-// Other implementation of color palette with no hexcode on swatches
+function getColorHarmony() {
+  // If there are colors in the color array, reset the array to only store the first color aka the active color. This is so that when it comes to creating dynamic color palette, we're not including the previous color suggestion if the webpages hasn't been refreshed yet.
+  if (colorPicker.colors.length != 0) {
+    colorPicker.colors = [colorPicker.colors[0]];
+  }
 
-// let box2 = document.querySelector(".box2")
-// let box3 = document.querySelector(".box3");
-// let box4 = document.querySelector(".box4");
+  // console.log("colorPicker.colors.length", colorPicker.colors.length); //debugging. prints current color array length
 
-// let combination = document.querySelector("#combination");
-// combination.addEventListener("change", function() {
-//   console.log(this.value)
-//   if(this.value === 'Triadic') {
-//     box3.style.display = 'block';
-//     box4.style.display = 'none';
-//     box2.style.backgroundColor = '#73ff19'
-//     if (colorPicker.id === 'default') {
-//       document.querySelector("#default").style.display = 'none'
-//       // document.querySelector("#tetradic").style.display = 'none'
-//       const colorPickerTriadic = new iro.ColorPicker(".triadic", {
-//         // color picker options
-//         // Option guide: https://iro.js.org/guide.html#color-picker-options
-//         width: 320,
-//         // Pure red, green and blue
-//         colors: [
-//           "rgb(255, 0, 0)",
-//           "rgb(0, 255, 0)",
-//           "rgb(0, 0, 255)",
-//         ],
-//         handleRadius: 9,
-//         borderWidth: 1,
-//         borderColor: "#fff",
-//         id: 'triadic'
-//       });
-//     }
-//     // console.log(colorPicker.id)
-//   } else if (this.value === 'Tetradic') {
-//     box3.style.display = 'block';
-//     box4.style.display = 'block';
-//     box2.style.backgroundColor = '#73ff19'
-//     document.querySelector("#triadic").style.display = 'none'
-//     const colorPickerTetradic = new iro.ColorPicker(".tetradic", {
-//       // color picker options
-//       // Option guide: https://iro.js.org/guide.html#color-picker-options
-//       width: 320,
-//       // Pure red, green and blue
-//       colors: [
-//         "rgb(255, 0, 0)",
-//         "rgb(0, 255, 0)",
-//         "rgb(0, 0, 255)",
-//         "rgb(0, 0, 255)",
-//         "rgb(255, 0, 238)"
-//       ],
-//       handleRadius: 9,
-//       borderWidth: 1,
-//       borderColor: "#fff",
-//       id: 'tetradic'
-//     });
-//   } else if (this.value === 'Analogous') {
-//     box3.style.display = 'block';
-//     box4.style.display = 'none';
-//     box2.style.backgroundColor = '#73ff19'
-//   } else if (this.value === 'Monochromatic') {
-//     box3.style.display = 'none';
-//     box4.style.display = 'none';
-//     box2.style.backgroundColor = '#DD00E5'
-//   } else if (this.value === 'Complementary') {
-//     box2.style.backgroundColor = '#73ff19'
-//     box3.style.display = 'none';
-//     box4.style.display = 'none';
-//   } else {
-//     box3.style.display = 'none';
-//     box4.style.display = 'none';
-//   }
-// })
+  // Get user color harmony selection
+  colorHarmony = combinations.value;
+  // console.log("colorHarmony", colorHarmony);
+
+  userHexCode = hexInput.value;
+  // console.log("userHexCode", userHexCode);
+
+  // Get suggestion from groq ai
+  groqSuggestions(userHexCode, colorHarmony);
+
+  // Add color suggestion to color array
+  // add a color to the color picker
+  // this will add the color to the end of the colors array
+  // colorPicker.addColor("#ff85e0"); // colors are temporary. will be changed to groq ai suggestion
+  // colorPicker.addColor("#d6f6ff");
+  // colorPicker.addColor("#59a7ff");
+
+  // console.log("colorPicker.colors.length", colorPicker.colors.length); //debugging. prints current color array length
+}
+
+// groq Ai suggestion
+async function groqSuggestions(userHexCode, colorHarmony) {
+  // console.log("groq userHexCode", userHexCode);
+  // console.log("groq colorHarmony", colorHarmony);
+  let systemPrompt =
+    "You are an expert on color harmony.  Do not include base color as part of the suggestion. Do not give any explanation. Use space to separate suggestions";
+  let userPrompt = `Color harmony is ${colorHarmony}. Base color is ${userHexCode}. Do not include base color in suggestion too. Hex Code only.`;
+  // console.log("userPrompt", userPrompt);
+
+  const url = "https://api.groq.com/openai/v1/chat/completions";
+
+  const apiKey = `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`;
+
+  // Make a POST request to the GroqAI API to get chat completions
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify({
+      messages: [
+        {
+          role: "system",
+          content: systemPrompt,
+        },
+        {
+          role: "user",
+          content: userPrompt,
+        },
+      ],
+      temperature: 0.6,
+      model: "llama3-70b-8192",
+      max_tokens: 30,
+    }),
+  });
+
+  //Log response in json format
+  const groqData = await response.json();
+  // console.log("groqData", groqData);
+
+  const colorSuggestion = await groqData.choices[0].message.content;
+  // console.log("colorSuggestion", colorSuggestion);
+  // console.log(typeof colorSuggestion);
+
+  // Split colorSuggestion into an array
+  let suggestionArray = colorSuggestion.split(" ");
+
+  // console.log("suggestionArray", suggestionArray);
+
+  // Add to color array
+  for (let suggestion of suggestionArray) {
+    // console.log("suggestion", suggestion);
+    let hex = suggestion;
+    colorPicker.addColor(hex);
+    // console.log("colors array", colorPicker.colors);
+  }
+}
