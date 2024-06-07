@@ -213,12 +213,8 @@ select {
 
   .headline-container {
     margin-top: -10px;
+    margin-bottom: 42px;
   }
-
-  .main-footer {
-    margin-top: 42px;
-  }
-}
 
 /* ################ */
 /* Tablet Styles */
@@ -241,6 +237,7 @@ select {
 
   .headline-container {
     margin-top: 10px;
+    margin-bottom: 50px;
   }
 
   .picker {
