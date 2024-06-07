@@ -243,7 +243,7 @@ select {
   .logo {
     padding: 0.625rem 0.625rem 0.625rem 0;
   }
-
+  
   .picker {
     margin-top: 0;
   }
@@ -303,10 +303,10 @@ select {
     max-width: 950px;
     margin-top: -10px;
     margin-bottom: 72px;
-  }
 
   .logo {
     padding: 0.625rem 0.625rem 0.625rem 0.8rem;
+
   }
 
   .desktop-row {
