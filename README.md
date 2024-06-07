@@ -4,7 +4,7 @@
 
 ## Overview
 
-Hue harmony is a single page application (SPA) that allows users to get color palette suggestion based on a base color and color harmony. Hue Harmony leverages the power of AI to provide color palette suggestion for the user.
+Hue harmony is a single page application (SPA) that allows users to get color palette suggestion based on a base color and a color harmony. Hue Harmony leverages the power of AI to provide color palette suggestion for the user.
 
 Live link is [here](https://chingu-voyages.github.io/v49-tier1-team-03/).
 
@@ -13,6 +13,7 @@ Live link is [here](https://chingu-voyages.github.io/v49-tier1-team-03/).
 - HTML
 - CSS
 - Javascript
+- [iro.js library](https://iro.js.org)
 - Groq AI API using llama3-70b-8192 model
 - Figma
 
