@@ -208,7 +208,7 @@ select {
   }
 
   h2 {
-		margin-top: -10px;
+    margin-top: -10px;
     margin-bottom: 48px;
   }
 
@@ -229,7 +229,7 @@ select {
   h1 {
     font-size: 3rem;
     margin-top: 0;
-	margin-bottom: 0;
+    margin-bottom: 0;
   }
 
   h2 {
@@ -239,7 +239,7 @@ select {
 
   .headline-container {
     margin-top: -10px;
-	margin-bottom: 10px;
+    margin-bottom: 10px;
   }
 
   .picker {
@@ -264,7 +264,6 @@ select {
   .swatch {
     font-size: 1.125rem;
   }
-  
 }
 /* ################# */
 /* Desktop Styles */
