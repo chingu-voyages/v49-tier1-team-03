@@ -213,8 +213,9 @@ select {
 
   .headline-container {
     margin-top: -10px;
-    margin-bottom: 42px;
+    margin-bottom: 40px;
   }
+}
 
 /* ################ */
 /* Tablet Styles */
@@ -298,6 +299,7 @@ select {
     position: relative;
     max-width: 950px;
     margin-top: -10px;
+    margin-bottom: 72px;
   }
 
   .desktop-row {
@@ -326,6 +328,10 @@ select {
   .swatch {
     height: 112px;
     font-size: 1.125rem;
+  }
+
+  .main-footer {
+    margin-top: 50px;
   }
 
   .main-footer .container {
