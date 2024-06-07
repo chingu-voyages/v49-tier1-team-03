@@ -330,10 +330,6 @@ select {
     font-size: 1.125rem;
   }
 
-  .main-footer {
-    margin-top: 50px;
-  }
-
   .main-footer .container {
     justify-content: flex-start;
   }
