@@ -3,7 +3,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* border: 1px solid #000; /*debugging - visualise the box model*/*/ 
+  /* debugging - visualise the box model */
+  /* border: 1px solid #000; */
 }
 
 body {
@@ -278,13 +279,15 @@ select {
   .main-footer .container {
     margin-left: 6rem;
   }
+
   h1 {
     font-size: 4rem;
     margin-top: 0;
+    margin-bottom: 0;
   }
 
   h2 {
-    margin-top: 24px;
+    margin-top: 0;
     margin-bottom: 0;
     font-size: 2rem;
   }
@@ -297,7 +300,7 @@ select {
   .headline-container {
     position: relative;
     max-width: 950px;
-    margin-top: 20px;
+    margin-top: -10px;
   }
 
   .desktop-row {
@@ -309,7 +312,7 @@ select {
     /* background-color: #000; */
     position: absolute;
     left: 0;
-    top: 30%;
+    top: 26.5%;
   }
 
   label {
