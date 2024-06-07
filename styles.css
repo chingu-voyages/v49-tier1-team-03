@@ -63,14 +63,8 @@ h2::first-letter {
   text-transform: uppercase;
 }
 /* WHEEL */
-.picker,
-.triadic {
+.picker {
   margin-top: 3rem;
-}
-
-.triadic,
-.tetradic {
-  display: none;
 }
 
 /* Add flexbox */
