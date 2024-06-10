@@ -12,9 +12,9 @@ var colorPicker = new iro.ColorPicker(".picker", {
     {
       component: iro.ui.Wheel,
       options: {
-        handleSvg: "#pickerHandle", //This uses custom svg file
-        // handleRadius: 6,
-        // activeHandleRadius: 12,
+        // handleSvg: "#pickerHandle", //This uses custom svg file
+        handleRadius: 6,
+        activeHandleRadius: 12,
       },
     },
     {
