@@ -32,14 +32,24 @@ img {
 .btn {
   padding: 0.875rem;
   border-radius: 8px;
-  display: inline-block;
+  display: block;
   font-weight: 700;
+  transition: 0.3s ease-in-out;
+  border: none;
 }
 
 .btn-dark {
   background: #000;
   color: #fff;
 }
+
+.btn-dark:hover {
+  background: #676767;
+}
+.btn-dark:active {
+  background: #bfbfbf;
+}
+
 /* HEADER */
 .main-header {
   background-color: #000;
@@ -114,6 +124,7 @@ select {
   border: 1px solid #e0e0e0;
   cursor: pointer;
 }
+
 input {
   margin-bottom: 1rem;
 }
@@ -133,8 +144,9 @@ select {
 }
 
 .dropdown-color button {
-  width: 90%;
+  width: 90vw;
   margin: 0 auto;
+  margin-bottom: 2.5rem;
 }
 /* BOX PALETTE */
 .color-palette {
@@ -350,6 +362,9 @@ select {
     max-width: 468px;
   }
 
+  .dropdown-color button {
+    max-width: 468px;
+  }
   .swatch {
     height: 112px;
     font-size: 1.125rem;
