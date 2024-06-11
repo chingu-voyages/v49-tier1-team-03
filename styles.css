@@ -44,10 +44,10 @@ img {
 }
 
 .btn-dark:hover {
-  background: #676767;
+  background: #4d4d4d;
 }
 .btn-dark:active {
-  background: #bfbfbf;
+  background: #333;
 }
 
 /* HEADER */
