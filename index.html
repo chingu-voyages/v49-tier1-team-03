@@ -46,19 +46,20 @@
       <div>
         <!-- Dropdown -->
         <div class="dropdown-color">
-          <label for="hexInput">1. Pick a color</label>
+          <label for="hexInput">Pick a primary color</label>
           <input type="text" id="hexInput" placeholder="Hex Code" />
 
-          <label for="combinations">2. Pick a color combination</label>
+          <label for="combinations">Color harmony</label>
           <select name="combinations" id="combinations">
-            <option selected value="Complementary">Complementary</option>
+            <option value="Choose your combination" selected hidden>Choose your combination</option>
+            <option value="Complementary">Complementary</option>
             <option value="Monochromatic">Monochromatic</option>
             <option value="Analogous">Analogous</option>
             <option value="Triadic">Triadic</option>
             <option value="Tetradic">Tetradic</option>
           </select>
 
-          <label>3. Review color palette</label>
+          <button class="btn btn-dark" type="button">Create Combination</button>
           <ul id="colorPalette" class="color-palette colorList"></ul>
         </div>
       </div>
