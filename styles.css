@@ -145,6 +145,7 @@ select {
 
 .dropdown-color button {
   width: 90vw;
+  height: 48px;
   margin: 0 auto;
   margin-bottom: 2.5rem;
 }
@@ -263,6 +264,7 @@ select {
   h2 {
     font-size: 2rem;
     margin-top: 0;
+    margin-bottom: 4rem;
   }
 
   .headline-container {
@@ -293,6 +295,10 @@ select {
     margin-bottom: 1.5rem;
   }
 
+  .select {
+    margin-bottom: 4rem;
+  }
+
   .swatch {
     font-size: 1.125rem;
   }
@@ -319,8 +325,12 @@ select {
 
   h2 {
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: 4.5rem;
     font-size: 2rem;
+  }
+
+  .picker {
+    margin-top: 0;
   }
 
   label {
@@ -330,7 +340,7 @@ select {
 
   .headline-container {
     position: relative;
-    max-width: 950px;
+    max-width: 1100px;
     margin-top: -10px;
     margin-bottom: 72px;
   }
@@ -341,7 +351,8 @@ select {
 
   .desktop-row {
     flex-direction: row-reverse;
-    justify-content: end;
+    justify-content: flex-start;
+    align-items: center;
   }
 
   .dropdown-color {
@@ -349,6 +360,10 @@ select {
     position: absolute;
     left: 0;
     top: 26.5%;
+  }
+
+  .dropdown-color button {
+    max-width: 468px;
   }
 
   label {
@@ -362,15 +377,20 @@ select {
     max-width: 468px;
   }
 
-  .dropdown-color button {
-    max-width: 468px;
-  }
   .swatch {
     height: 112px;
     font-size: 1.125rem;
   }
 
+  .colorList {
+    padding-top: 7rem;
+    position: relative;
+    bottom: -50%;
+    left: 50%;
+  }
+
   .main-footer .container {
+    padding-top: 10rem;
     justify-content: flex-start;
   }
 }
