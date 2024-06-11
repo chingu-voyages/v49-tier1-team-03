@@ -51,20 +51,25 @@ hexInput.addEventListener("change", function () {
 let userHexCode = 0;
 let colorHarmony = 0;
 
-// Get color suggestion when webpage refreshes
-document.addEventListener("DOMContentLoaded", getColorHarmony);
-
-// Get color suggestions when user selects color harmony selection
+// Get user color combination
 let combinations = document.getElementById("combinations");
-// console.log("combinations", combinations);
-combinations.addEventListener("change", getColorHarmony);
+
+// Get color suggestions when user clicks on "create combination" button
+let createButton = document.getElementById("createButton");
+console.log("createButton", createButton);
+
+createButton.addEventListener("click", getColorHarmony);
+
+// createButton.addEventListener("click", createColorPalette);
 
 // Dynamic Colour Palette implementation - with hexcode displayed on swatches and works closely with groq ai integration
 const colorPalette = document.getElementById("colorPalette");
 
 // https://iro.js.org/guide.html#color-picker-events
-// When there is a change on the colour wheel, html element is updated and displays colors from color array
-colorPicker.on(["mount", "color:change", "color:init"], function () {
+// When colors are added to colors array from color suggestion, html element is updated and displays colors from color array
+colorPicker.on(["color:init"], createColorPalette);
+
+function createColorPalette() {
   colorPalette.innerHTML = "";
   // console.log("colors array", colorPicker.colors);
   colorPicker.colors.forEach((color) => {
@@ -75,7 +80,7 @@ colorPicker.on(["mount", "color:change", "color:init"], function () {
         </li>
       `;
   });
-});
+}
 
 function getColorHarmony() {
   // If there are colors in the color array, reset the array to only store the first color aka the active color. This is so that when it comes to creating dynamic color palette, we're not including the previous color suggestion if the webpages hasn't been refreshed yet.
