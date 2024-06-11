@@ -91,23 +91,26 @@ function getColorHarmony() {
   // console.log("colorPicker.colors.length", colorPicker.colors.length); //debugging. prints current color array length
 
   // Get user color harmony selection
-  colorHarmony = combinations.value;
-  // console.log("colorHarmony", colorHarmony);
+  if (combinations.value != "Choose your combination") {
+    colorHarmony = combinations.value;
 
-  userHexCode = hexInput.value;
-  // console.log("userHexCode", userHexCode);
+    console.log("colorHarmony", colorHarmony);
 
-  // Get suggestion from groq ai
-  groqSuggestions(userHexCode, colorHarmony);
+    userHexCode = hexInput.value;
+    // console.log("userHexCode", userHexCode);
 
-  // Add color suggestion to color array
-  // add a color to the color picker
-  // this will add the color to the end of the colors array
-  // colorPicker.addColor("#ff85e0"); // colors are temporary. will be changed to groq ai suggestion
-  // colorPicker.addColor("#d6f6ff");
-  // colorPicker.addColor("#59a7ff");
+    // Get suggestion from groq ai
+    groqSuggestions(userHexCode, colorHarmony);
 
-  // console.log("colorPicker.colors.length", colorPicker.colors.length); //debugging. prints current color array length
+    // Add color suggestion to color array
+    // add a color to the color picker
+    // this will add the color to the end of the colors array
+    // colorPicker.addColor("#ff85e0"); // colors are temporary. will be changed to groq ai suggestion
+    // colorPicker.addColor("#d6f6ff");
+    // colorPicker.addColor("#59a7ff");
+
+    // console.log("colorPicker.colors.length", colorPicker.colors.length); //debugging. prints current color array length
+  }
 }
 
 // groq Ai suggestion
