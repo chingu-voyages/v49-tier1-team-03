@@ -70,6 +70,9 @@ const colorPalette = document.getElementById("colorPalette");
 colorPicker.on(["color:init"], createColorPalette);
 
 function createColorPalette() {
+  let primaryHex = colorPicker.colors[0].hexString;
+  colorPaletteTitle.innerHTML = `Results for <strong>${primaryHex}</strong>`;
+
   colorPalette.innerHTML = "";
   // console.log("colors array", colorPicker.colors);
   colorPicker.colors.forEach((color) => {
