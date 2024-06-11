@@ -52,12 +52,18 @@ let userHexCode = 0;
 let colorHarmony = 0;
 
 // Get color suggestion when webpage refreshes
-document.addEventListener("DOMContentLoaded", getColorHarmony);
+// document.addEventListener("DOMContentLoaded", getColorHarmony);
 
 // Get color suggestions when user selects color harmony selection
 let combinations = document.getElementById("combinations");
 // console.log("combinations", combinations);
-combinations.addEventListener("change", getColorHarmony);
+// combinations.addEventListener("change", getColorHarmony);
+
+// Get color suggestions when user clicks on "create combination" button
+let createButton = document.getElementById("createButton");
+console.log("createButton", createButton);
+
+createButton.addEventListener("click", getColorHarmony);
 
 // Dynamic Colour Palette implementation - with hexcode displayed on swatches and works closely with groq ai integration
 const colorPalette = document.getElementById("colorPalette");
