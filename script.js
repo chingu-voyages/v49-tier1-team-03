@@ -56,7 +56,7 @@ let combinations = document.getElementById("combinations");
 
 // Get color suggestions when user clicks on "create combination" button
 let createButton = document.getElementById("createButton");
-console.log("createButton", createButton);
+// console.log("createButton", createButton);
 
 createButton.addEventListener("click", getColorHarmony);
 
@@ -86,9 +86,9 @@ function createColorPalette(suggestionArray) {
   // Print color suggestion
   suggestionArray.forEach((suggestion) => {
     console.log("suggestionArray", suggestionArray);
-    console.log("suggestion", suggestion);
+    // console.log("suggestion", suggestion);
     const hexString = suggestion;
-    console.log("hexString", hexString);
+    // console.log("hexString", hexString);
     colorPalette.innerHTML += `
         <li>
           <div class="swatch" style="background: ${hexString}">${hexString}</div>
@@ -108,8 +108,7 @@ function getColorHarmony() {
   // Get user color harmony selection
   if (combinations.value != "Choose your combination") {
     colorHarmony = combinations.value;
-
-    console.log("colorHarmony", colorHarmony);
+    // console.log("colorHarmony", colorHarmony);
 
     userHexCode = hexInput.value;
     // console.log("userHexCode", userHexCode);
@@ -132,45 +131,51 @@ async function groqSuggestions(userHexCode, colorHarmony) {
 
   const apiKey = `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`;
 
-  // Make a POST request to the GroqAI API to get chat completions
-  const response = await fetch(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${apiKey}`,
-    },
-    body: JSON.stringify({
-      messages: [
-        {
-          role: "system",
-          content: systemPrompt,
-        },
-        {
-          role: "user",
-          content: userPrompt,
-        },
-      ],
-      temperature: 0.6,
-      model: "llama3-70b-8192",
-      max_tokens: 30,
-    }),
-  });
+  try {
+    // Make a POST request to the GroqAI API to get chat completions
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        messages: [
+          {
+            role: "system",
+            content: systemPrompt,
+          },
+          {
+            role: "user",
+            content: userPrompt,
+          },
+        ],
+        temperature: 0.6,
+        model: "llama3-70b-8192",
+        max_tokens: 30,
+      }),
+    });
 
-  //Log response in json format
-  const groqData = await response.json();
-  // console.log("groqData", groqData);
+    //Log response in json format
+    const groqData = await response.json();
+    // console.log("groqData", groqData);
 
-  const colorSuggestion = await groqData.choices[0].message.content;
-  // console.log("colorSuggestion", colorSuggestion);
-  // console.log(typeof colorSuggestion);
+    const colorSuggestion = await groqData.choices[0].message.content;
+    // console.log("colorSuggestion", colorSuggestion);
+    // console.log(typeof colorSuggestion);
 
-  // Split colorSuggestion into an array
-  let suggestionArray = colorSuggestion.split(" ");
+    // Split colorSuggestion into an array
+    let suggestionArray = colorSuggestion.split(" ");
 
-  console.log("suggestionArray", suggestionArray);
+    console.log("suggestionArray", suggestionArray);
 
-  // Display color palette
-  createColorPalette(suggestionArray);
+    // Display color palette
+    createColorPalette(suggestionArray);
+  } catch (error) {
+    let errorText = "Error: Groq AI API connection failed";
+    console.error(errorText, error);
+    alert(errorText); // pop up alert for user
+  }
 
   // // Add to color array
   // for (let suggestion of suggestionArray) {
