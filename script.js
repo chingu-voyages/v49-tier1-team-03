@@ -172,7 +172,7 @@ async function groqSuggestions(userHexCode, colorHarmony) {
     // Display color palette
     createColorPalette(suggestionArray);
   } catch (error) {
-    let errorText = "Error: Groq AI API connection failed";
+    let errorText = "Error: Groq AI API connection failed. Try again.";
     console.error(errorText, error);
     alert(errorText); // pop up alert for user
   }
