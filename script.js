@@ -63,7 +63,7 @@ createButton.addEventListener("click", getColorHarmony);
 // createButton.addEventListener("click", createColorPalette);
 
 // Dynamic Colour Palette implementation - with hexcode displayed on swatches and works closely with groq ai integration
-const colorPalette = document.getElementById("colorPalette");
+const colorPalette = document.getElementById("colorPaletteSwatch");
 
 // https://iro.js.org/guide.html#color-picker-events
 // When colors are added to colors array from color suggestion, html element is updated and displays colors from color array
