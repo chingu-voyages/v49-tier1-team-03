@@ -82,7 +82,6 @@ function createColorPalette(suggestionArray) {
           <div class="swatch" style="background: ${primaryHex}">${primaryHex}</div>
         </li>
       `;
-
   // Print color suggestion
   suggestionArray.forEach((suggestion) => {
     console.log("suggestionArray", suggestionArray);
@@ -94,6 +93,41 @@ function createColorPalette(suggestionArray) {
           <div class="swatch" style="background: ${hexString}">${hexString}</div>
         </li>
       `;
+  });
+  
+  let swatchFields = document.querySelectorAll(".swatch");
+  swatchFields.forEach(swatch => {
+    console.log(swatch.innerHTML);
+    swatch.addEventListener("click", function() {
+      copyToClipboard(swatch.innerHTML);
+    });
+  });
+  
+}
+
+function copyToClipboard(text) {
+  // Create a temporary text area element
+  let tempTextArea = document.createElement("textarea");
+  tempTextArea.value = text;
+  document.body.appendChild(tempTextArea);
+
+  // Select the text
+  tempTextArea.select();
+  tempTextArea.setSelectionRange(0, 99999); // For mobile devices
+
+  // Copy the text inside the text area
+  navigator.clipboard.writeText(tempTextArea.value);
+
+  // Remove the temporary text area
+  document.body.removeChild(tempTextArea);
+
+  // Alert the copied text
+  // alert("Copied the text: " + text);
+  Swal.fire({
+    title: 'Copied!',
+    text: `Text copied to clipboard: ${text}`,
+    icon: 'success',
+    confirmButtonText: 'OK'
   });
 }
 
