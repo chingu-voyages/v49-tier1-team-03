@@ -383,8 +383,11 @@ select {
   }
 
   .main-footer .container {
-    padding-top: 10rem;
     justify-content: flex-start;
+  }
+
+  #colorPalette {
+    margin-top: 112px;
   }
 }
 
