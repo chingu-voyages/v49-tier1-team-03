@@ -67,16 +67,28 @@ const colorPalette = document.getElementById("colorPalette");
 
 // https://iro.js.org/guide.html#color-picker-events
 // When colors are added to colors array from color suggestion, html element is updated and displays colors from color array
-colorPicker.on(["color:init"], createColorPalette);
+// colorPicker.on(["color:init"], createColorPalette);
 
-function createColorPalette() {
+function createColorPalette(suggestionArray) {
+  // Set color palette title
   let primaryHex = colorPicker.colors[0].hexString;
   colorPaletteTitle.innerHTML = `Results for <strong>${primaryHex}</strong>`;
-
+  // Reset color palette
   colorPalette.innerHTML = "";
-  // console.log("colors array", colorPicker.colors);
-  colorPicker.colors.forEach((color) => {
-    const hexString = color.hexString;
+
+  // Print primary color
+  colorPalette.innerHTML += `
+        <li>
+          <div class="swatch" style="background: ${primaryHex}">${primaryHex}</div>
+        </li>
+      `;
+
+  // Print color suggestion
+  suggestionArray.forEach((suggestion) => {
+    console.log("suggestionArray", suggestionArray);
+    console.log("suggestion", suggestion);
+    const hexString = suggestion;
+    console.log("hexString", hexString);
     colorPalette.innerHTML += `
         <li>
           <div class="swatch" style="background: ${hexString}">${hexString}</div>
@@ -104,15 +116,6 @@ function getColorHarmony() {
 
     // Get suggestion from groq ai
     groqSuggestions(userHexCode, colorHarmony);
-
-    // Add color suggestion to color array
-    // add a color to the color picker
-    // this will add the color to the end of the colors array
-    // colorPicker.addColor("#ff85e0"); // colors are temporary. will be changed to groq ai suggestion
-    // colorPicker.addColor("#d6f6ff");
-    // colorPicker.addColor("#59a7ff");
-
-    // console.log("colorPicker.colors.length", colorPicker.colors.length); //debugging. prints current color array length
   }
 }
 
@@ -164,13 +167,16 @@ async function groqSuggestions(userHexCode, colorHarmony) {
   // Split colorSuggestion into an array
   let suggestionArray = colorSuggestion.split(" ");
 
-  // console.log("suggestionArray", suggestionArray);
+  console.log("suggestionArray", suggestionArray);
 
-  // Add to color array
-  for (let suggestion of suggestionArray) {
-    // console.log("suggestion", suggestion);
-    let hex = suggestion;
-    colorPicker.addColor(hex);
-    // console.log("colors array", colorPicker.colors);
-  }
+  // Display color palette
+  createColorPalette(suggestionArray);
+
+  // // Add to color array
+  // for (let suggestion of suggestionArray) {
+  //   // console.log("suggestion", suggestion);
+  //   let hex = suggestion;
+  //   colorPicker.addColor(hex);
+  //   // console.log("colors array", colorPicker.colors);
+  // }
 }
