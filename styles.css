@@ -375,7 +375,8 @@ select {
   }
 
   input,
-  select {
+  select,
+  .test {
     font-size: 1.125rem;
     margin-bottom: 2.5rem;
     max-width: 468px;
@@ -403,4 +404,30 @@ select {
   .main-footer .container {
     margin-left: 9rem;
   }
+}
+
+
+.test {
+  width: 90vw;
+  font-size: 1rem;
+  font-weight: 300;
+  font-family: inherit;
+  /* display: block; */
+  outline: none;
+  /* padding: 0.75rem 1.25rem; */
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.test3 {
+  border: 1px solid;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  /* background-color: purple; */
 }
