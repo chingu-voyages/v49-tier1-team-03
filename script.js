@@ -32,12 +32,14 @@ var colorPicker = new iro.ColorPicker(".picker", {
 
 // Get user selection by referencing the id selector "hexInput"
 var hexInput = document.getElementById("hexInput");
+let circle = document.getElementById("circle")
 
 // When there is a color change ie user selects a color on the wheel, update the input field with the selected color.
 // https://iro.js.org/guide.html#color-picker-events
 colorPicker.on(["color:init", "color:change"], function (color) {
   // Using the selected color: https://iro.js.org/guide.html#selected-color-api
-  hexInput.value = colorPicker.colors[0].hexString; // the input field is updated with the base color selected - stored in index 0 of colors array
+  hexInput.innerHTML = colorPicker.colors[0].hexString; // the input field is updated with the base color selected - stored in index 0 of colors array
+  circle.style.backgroundColor = `${colorPicker.colors[0].hexString}`
   // console.log("color.hexString", color.hexString); // Debugging - prints selected value in console
   // console.log("hexInput.value", hexInput.value); // Debugging - prints selected value in console
 });
