@@ -40,8 +40,7 @@ colorPicker.on(["color:init", "color:change"], function (color) {
   // Using the selected color: https://iro.js.org/guide.html#selected-color-api
   hexInput.innerHTML = colorPicker.colors[0].hexString; // the input field is updated with the base color selected - stored in index 0 of colors array
   circle.style.backgroundColor = `${colorPicker.colors[0].hexString}`
-  // console.log("color.hexString", color.hexString); // Debugging - prints selected value in console
-  // console.log("hexInput.value", hexInput.value); // Debugging - prints selected value in console
+  // console.log("colorPicker.colors[0].hexString", colorPicker.colors[0].hexString); // Debugging - prints selected value in console
 });
 
 //When the user types something in the input field and hit enter -> The "change" event is triggered - the color wheel will be updated with user's color
@@ -61,8 +60,6 @@ let createButton = document.getElementById("createButton");
 // console.log("createButton", createButton);
 
 createButton.addEventListener("click", getColorHarmony);
-
-// createButton.addEventListener("click", createColorPalette);
 
 // Dynamic Colour Palette implementation - with hexcode displayed on swatches and works closely with groq ai integration
 const colorPalette = document.getElementById("colorPaletteSwatch");
@@ -86,7 +83,7 @@ function createColorPalette(suggestionArray) {
       `;
   // Print color suggestion
   suggestionArray.forEach((suggestion) => {
-    console.log("suggestionArray", suggestionArray);
+    //console.log("suggestionArray", suggestionArray);
     // console.log("suggestion", suggestion);
     const hexString = suggestion;
     // console.log("hexString", hexString);
@@ -99,7 +96,7 @@ function createColorPalette(suggestionArray) {
   
   let swatchFields = document.querySelectorAll(".swatch");
   swatchFields.forEach(swatch => {
-    console.log(swatch.innerHTML);
+    // console.log(swatch.innerHTML);
     swatch.addEventListener("click", function() {
       copyToClipboard(swatch.innerHTML);
     });
@@ -146,7 +143,7 @@ function getColorHarmony() {
     colorHarmony = combinations.value;
     // console.log("colorHarmony", colorHarmony);
 
-    userHexCode = hexInput.value;
+    userHexCode = colorPicker.colors[0].hexString;
     // console.log("userHexCode", userHexCode);
 
     // Get suggestion from groq ai
@@ -203,7 +200,7 @@ async function groqSuggestions(userHexCode, colorHarmony) {
     // Split colorSuggestion into an array
     let suggestionArray = colorSuggestion.split(" ");
 
-    console.log("suggestionArray", suggestionArray);
+    // console.log("suggestionArray", suggestionArray);
 
     // Display color palette
     createColorPalette(suggestionArray);
