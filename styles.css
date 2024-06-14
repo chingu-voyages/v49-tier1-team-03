@@ -46,6 +46,7 @@ img {
 .btn-dark:hover {
   background: #4d4d4d;
 }
+
 .btn-dark:active {
   background: #333;
 }
@@ -111,13 +112,28 @@ label {
   margin-bottom: 0.5rem;
 }
 
-input,
+.input {
+  /* padding: 0.75rem 1.25rem; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.circle {
+  border: 1px solid;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  /* background-color: purple; */
+}
+
+.input,
 select {
   width: 90vw;
   font-size: 1rem;
   font-weight: 300;
   font-family: inherit;
-  display: block;
   outline: none;
   padding: 0.75rem 1.25rem;
   border-radius: 8px;
@@ -125,11 +141,7 @@ select {
   cursor: pointer;
 }
 
-input {
-  margin-bottom: 1rem;
-}
-
-input:focus,
+.input:active,
 select:focus {
   outline: 1px solid #038cfc;
 }
@@ -293,7 +305,7 @@ select {
     margin-bottom: 0.5rem;
   }
 
-  input,
+  .input,
   select {
     font-size: 1.125rem;
     margin-bottom: 1.5rem;
@@ -374,9 +386,8 @@ select {
     margin-bottom: 1rem;
   }
 
-  input,
   select,
-  .test {
+  .input {
     font-size: 1.125rem;
     margin-bottom: 2.5rem;
     max-width: 468px;
@@ -404,30 +415,4 @@ select {
   .main-footer .container {
     margin-left: 9rem;
   }
-}
-
-
-.test {
-  width: 90vw;
-  font-size: 1rem;
-  font-weight: 300;
-  font-family: inherit;
-  /* display: block; */
-  outline: none;
-  /* padding: 0.75rem 1.25rem; */
-  border-radius: 8px;
-  border: 1px solid #e0e0e0;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
-}
-
-.test3 {
-  border: 1px solid;
-  border-radius: 50%;
-  width: 25px;
-  height: 25px;
-  /* background-color: purple; */
 }
