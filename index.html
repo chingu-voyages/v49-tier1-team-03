@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="styles.css" />
     <title>Colour Matching App</title>
     <link rel="shortcut icon" href="img/favicon_v2.svg" />
+    <!-- POPUP LIBRARY -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
     <!-- IRO.JS library -->
     <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5" defer></script>
     <script src="script.js" defer></script>
@@ -50,8 +53,8 @@
     </svg>
 
     <div class="headline-container container">
-      <h1>Color wheel</h1>
-      <h2>visualize and combine color like a pro</h2>
+      <h1>Color explorer</h1>
+      <h2>easily generate beautiful color combinations</h2>
 
       <div class="page-container container desktop-row">
         <!-- the actual wheel -->
@@ -59,22 +62,30 @@
         <div>
           <!-- Dropdown -->
           <div class="dropdown-color">
-            <label for="hexInput">1. Pick a color</label>
+            <label for="hexInput">Pick a primary color</label>
             <input type="text" id="hexInput" placeholder="Hex Code" />
 
-            <label for="combinations">2. Pick a color combination</label>
+            <label for="combinations">Color harmony</label>
             <select name="combinations" id="combinations">
-              <option selected value="Complementary">Complementary</option>
+              <option value="Choose your combination" disabled selected hidden>
+                Choose your combination
+              </option>
+              <option value="Complementary">Complementary</option>
               <option value="Monochromatic">Monochromatic</option>
               <option value="Analogous">Analogous</option>
               <option value="Triadic">Triadic</option>
               <option value="Tetradic">Tetradic</option>
             </select>
 
-            <label>3. Review color palette</label>
-            <ul id="colorPalette" class="color-palette colorList"></ul>
+            <button id="createButton" class="btn btn-dark" type="button">
+              Create Combination
+            </button>
           </div>
         </div>
+      </div>
+      <div id="colorPalette">
+        <div id="colorPaletteTitle"></div>
+        <ul id="colorPaletteSwatch" class="color-palette colorList"></ul>
       </div>
     </div>
     <footer class="main-footer">

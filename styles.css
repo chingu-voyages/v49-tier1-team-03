@@ -29,6 +29,27 @@ img {
   margin: 0 auto;
 }
 
+.btn {
+  padding: 0.875rem;
+  border-radius: 8px;
+  display: block;
+  font-weight: 700;
+  transition: 0.3s ease-in-out;
+  border: none;
+}
+
+.btn-dark {
+  background: #000;
+  color: #fff;
+}
+
+.btn-dark:hover {
+  background: #4d4d4d;
+}
+.btn-dark:active {
+  background: #333;
+}
+
 /* HEADER */
 .main-header {
   background-color: #000;
@@ -96,13 +117,16 @@ select {
   font-size: 1rem;
   font-weight: 300;
   font-family: inherit;
-  margin-bottom: 1rem;
   display: block;
   outline: none;
   padding: 0.75rem 1.25rem;
   border-radius: 8px;
   border: 1px solid #e0e0e0;
   cursor: pointer;
+}
+
+input {
+  margin-bottom: 1rem;
 }
 
 input:focus,
@@ -116,8 +140,15 @@ select {
   background-repeat: no-repeat;
   background-position: 95%;
   background-color: #fff;
+  margin-bottom: 3.5rem;
 }
 
+.dropdown-color button {
+  width: 90vw;
+  height: 48px;
+  margin: 0 auto;
+  margin-bottom: 2.5rem;
+}
 /* BOX PALETTE */
 .color-palette {
   margin-top: 1rem;
@@ -135,7 +166,7 @@ select {
 .colorList {
   list-style-type: none;
   padding: 0;
-  margin: 0;
+  margin-top: 1rem;
   margin-bottom: 12px;
   display: flex;
 
@@ -191,6 +222,10 @@ select {
   margin-right: 8px;
 }
 
+#createButton {
+  cursor: pointer;
+}
+
 /* Mobile Styles */
 @media only screen and (max-width: 767px) {
   .picker {
@@ -233,6 +268,7 @@ select {
   h2 {
     font-size: 2rem;
     margin-top: 0;
+    margin-bottom: 4rem;
   }
 
   .headline-container {
@@ -263,6 +299,10 @@ select {
     margin-bottom: 1.5rem;
   }
 
+  .select {
+    margin-bottom: 4rem;
+  }
+
   .swatch {
     font-size: 1.125rem;
   }
@@ -289,8 +329,12 @@ select {
 
   h2 {
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: 4.5rem;
     font-size: 2rem;
+  }
+
+  .picker {
+    margin-top: 0;
   }
 
   label {
@@ -300,7 +344,7 @@ select {
 
   .headline-container {
     position: relative;
-    max-width: 950px;
+    max-width: 1100px;
     margin-top: -10px;
     margin-bottom: 72px;
   }
@@ -311,7 +355,8 @@ select {
 
   .desktop-row {
     flex-direction: row-reverse;
-    justify-content: end;
+    justify-content: flex-start;
+    align-items: center;
   }
 
   .dropdown-color {
@@ -319,6 +364,10 @@ select {
     position: absolute;
     left: 0;
     top: 26.5%;
+  }
+
+  .dropdown-color button {
+    max-width: 468px;
   }
 
   label {
@@ -339,6 +388,10 @@ select {
 
   .main-footer .container {
     justify-content: flex-start;
+  }
+
+  #colorPalette {
+    margin-top: 112px;
   }
 }
 

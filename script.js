@@ -13,8 +13,8 @@ var colorPicker = new iro.ColorPicker(".picker", {
       component: iro.ui.Wheel,
       options: {
         handleSvg: "#pickerHandle", //This uses custom svg file
-        // handleRadius: 6,
-        // activeHandleRadius: 12,
+        // handleRadius: 6, // This uses inbuilt iros library handle
+        // activeHandleRadius: 12, // This uses inbuilt iros library handle
       },
     },
     {
@@ -51,31 +51,85 @@ hexInput.addEventListener("change", function () {
 let userHexCode = 0;
 let colorHarmony = 0;
 
-// Get color suggestion when webpage refreshes
-document.addEventListener("DOMContentLoaded", getColorHarmony);
-
-// Get color suggestions when user selects color harmony selection
+// Get user color combination
 let combinations = document.getElementById("combinations");
-// console.log("combinations", combinations);
-combinations.addEventListener("change", getColorHarmony);
+
+// Get color suggestions when user clicks on "create combination" button
+let createButton = document.getElementById("createButton");
+// console.log("createButton", createButton);
+
+createButton.addEventListener("click", getColorHarmony);
+
+// createButton.addEventListener("click", createColorPalette);
 
 // Dynamic Colour Palette implementation - with hexcode displayed on swatches and works closely with groq ai integration
-const colorPalette = document.getElementById("colorPalette");
+const colorPalette = document.getElementById("colorPaletteSwatch");
 
 // https://iro.js.org/guide.html#color-picker-events
-// When there is a change on the colour wheel, html element is updated and displays colors from color array
-colorPicker.on(["mount", "color:change", "color:init"], function () {
+// When colors are added to colors array from color suggestion, html element is updated and displays colors from color array
+// colorPicker.on(["color:init"], createColorPalette);
+
+function createColorPalette(suggestionArray) {
+  // Set color palette title
+  let primaryHex = colorPicker.colors[0].hexString;
+  colorPaletteTitle.innerHTML = `Results for <strong>${primaryHex}</strong>`;
+  // Reset color palette
   colorPalette.innerHTML = "";
-  // console.log("colors array", colorPicker.colors);
-  colorPicker.colors.forEach((color) => {
-    const hexString = color.hexString;
+
+  // Print primary color
+  colorPalette.innerHTML += `
+        <li>
+          <div class="swatch" style="background: ${primaryHex}">${primaryHex}</div>
+        </li>
+      `;
+  // Print color suggestion
+  suggestionArray.forEach((suggestion) => {
+    console.log("suggestionArray", suggestionArray);
+    // console.log("suggestion", suggestion);
+    const hexString = suggestion;
+    // console.log("hexString", hexString);
     colorPalette.innerHTML += `
         <li>
           <div class="swatch" style="background: ${hexString}">${hexString}</div>
         </li>
       `;
   });
-});
+  
+  let swatchFields = document.querySelectorAll(".swatch");
+  swatchFields.forEach(swatch => {
+    console.log(swatch.innerHTML);
+    swatch.addEventListener("click", function() {
+      copyToClipboard(swatch.innerHTML);
+    });
+  });
+  
+}
+
+function copyToClipboard(text) {
+  // Create a temporary text area element
+  let tempTextArea = document.createElement("textarea");
+  tempTextArea.value = text;
+  document.body.appendChild(tempTextArea);
+
+  // Select the text
+  tempTextArea.select();
+  tempTextArea.setSelectionRange(0, 99999); // For mobile devices
+
+  // Copy the text inside the text area
+  navigator.clipboard.writeText(tempTextArea.value);
+
+  // Remove the temporary text area
+  document.body.removeChild(tempTextArea);
+
+  // Alert the copied text
+  // alert("Copied the text: " + text);
+  Swal.fire({
+    title: 'Copied!',
+    text: `Text copied to clipboard: ${text}`,
+    icon: 'success',
+    confirmButtonText: 'OK'
+  });
+}
 
 function getColorHarmony() {
   // If there are colors in the color array, reset the array to only store the first color aka the active color. This is so that when it comes to creating dynamic color palette, we're not including the previous color suggestion if the webpages hasn't been refreshed yet.
@@ -86,23 +140,16 @@ function getColorHarmony() {
   // console.log("colorPicker.colors.length", colorPicker.colors.length); //debugging. prints current color array length
 
   // Get user color harmony selection
-  colorHarmony = combinations.value;
-  // console.log("colorHarmony", colorHarmony);
+  if (combinations.value != "Choose your combination") {
+    colorHarmony = combinations.value;
+    // console.log("colorHarmony", colorHarmony);
 
-  userHexCode = hexInput.value;
-  // console.log("userHexCode", userHexCode);
+    userHexCode = hexInput.value;
+    // console.log("userHexCode", userHexCode);
 
-  // Get suggestion from groq ai
-  groqSuggestions(userHexCode, colorHarmony);
-
-  // Add color suggestion to color array
-  // add a color to the color picker
-  // this will add the color to the end of the colors array
-  // colorPicker.addColor("#ff85e0"); // colors are temporary. will be changed to groq ai suggestion
-  // colorPicker.addColor("#d6f6ff");
-  // colorPicker.addColor("#59a7ff");
-
-  // console.log("colorPicker.colors.length", colorPicker.colors.length); //debugging. prints current color array length
+    // Get suggestion from groq ai
+    groqSuggestions(userHexCode, colorHarmony);
+  }
 }
 
 // groq Ai suggestion
@@ -118,48 +165,57 @@ async function groqSuggestions(userHexCode, colorHarmony) {
 
   const apiKey = `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`;
 
-  // Make a POST request to the GroqAI API to get chat completions
-  const response = await fetch(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${apiKey}`,
-    },
-    body: JSON.stringify({
-      messages: [
-        {
-          role: "system",
-          content: systemPrompt,
-        },
-        {
-          role: "user",
-          content: userPrompt,
-        },
-      ],
-      temperature: 0.6,
-      model: "llama3-70b-8192",
-      max_tokens: 30,
-    }),
-  });
+  try {
+    // Make a POST request to the GroqAI API to get chat completions
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        messages: [
+          {
+            role: "system",
+            content: systemPrompt,
+          },
+          {
+            role: "user",
+            content: userPrompt,
+          },
+        ],
+        temperature: 0.6,
+        model: "llama3-70b-8192",
+        max_tokens: 30,
+      }),
+    });
 
-  //Log response in json format
-  const groqData = await response.json();
-  // console.log("groqData", groqData);
+    //Log response in json format
+    const groqData = await response.json();
+    // console.log("groqData", groqData);
 
-  const colorSuggestion = await groqData.choices[0].message.content;
-  // console.log("colorSuggestion", colorSuggestion);
-  // console.log(typeof colorSuggestion);
+    const colorSuggestion = await groqData.choices[0].message.content;
+    // console.log("colorSuggestion", colorSuggestion);
+    // console.log(typeof colorSuggestion);
 
-  // Split colorSuggestion into an array
-  let suggestionArray = colorSuggestion.split(" ");
+    // Split colorSuggestion into an array
+    let suggestionArray = colorSuggestion.split(" ");
 
-  // console.log("suggestionArray", suggestionArray);
+    console.log("suggestionArray", suggestionArray);
 
-  // Add to color array
-  for (let suggestion of suggestionArray) {
-    // console.log("suggestion", suggestion);
-    let hex = suggestion;
-    colorPicker.addColor(hex);
-    // console.log("colors array", colorPicker.colors);
+    // Display color palette
+    createColorPalette(suggestionArray);
+  } catch (error) {
+    let errorText = "Error: Groq AI API connection request failed. Try again.";
+    console.error(errorText, error);
+    alert(errorText); // pop up alert for user
   }
+
+  // // Add to color array
+  // for (let suggestion of suggestionArray) {
+  //   // console.log("suggestion", suggestion);
+  //   let hex = suggestion;
+  //   colorPicker.addColor(hex);
+  //   // console.log("colors array", colorPicker.colors);
+  // }
 }
