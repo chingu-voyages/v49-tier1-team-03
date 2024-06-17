@@ -341,11 +341,6 @@ select {
     margin-top: 0;
   }
 
-  label {
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
-  }
-
   .headline-container {
     position: relative;
     max-width: 1100px;
@@ -376,6 +371,7 @@ select {
   }
 
   label {
+    font-size: 1.25rem;
     margin-bottom: 1rem;
   }
 
