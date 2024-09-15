@@ -94,15 +94,14 @@ function createColorPalette(suggestionArray) {
         </li>
       `;
   });
-  
+
   let swatchFields = document.querySelectorAll(".swatch");
-  swatchFields.forEach(swatch => {
+  swatchFields.forEach((swatch) => {
     console.log(swatch.innerHTML);
-    swatch.addEventListener("click", function() {
+    swatch.addEventListener("click", function () {
       copyToClipboard(swatch.innerHTML);
     });
   });
-  
 }
 
 function copyToClipboard(text) {
@@ -124,10 +123,10 @@ function copyToClipboard(text) {
   // Alert the copied text
   // alert("Copied the text: " + text);
   Swal.fire({
-    title: 'Copied!',
+    title: "Copied!",
     text: `Text copied to clipboard: ${text}`,
-    icon: 'success',
-    confirmButtonText: 'OK'
+    icon: "success",
+    confirmButtonText: "OK",
   });
 }
 
@@ -163,7 +162,7 @@ async function groqSuggestions(userHexCode, colorHarmony) {
 
   const url = "https://api.groq.com/openai/v1/chat/completions";
 
-  const apiKey = `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`;
+  const apiKey = `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`;
 
   try {
     // Make a POST request to the GroqAI API to get chat completions
